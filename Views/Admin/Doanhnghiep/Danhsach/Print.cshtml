@@ -1,0 +1,168 @@
+﻿@{
+    Layout = "_LayoutPrint";
+    var record_id = 1;
+}
+@model IEnumerable<QLVL_Binh.Models.Systems.nguoilaodong>
+<br />
+<br />
+
+<table id="data_header" class="header" width="96%" border="0" cellspacing="0" cellpadding="8" style="margin:0 auto 25px; text-align: center;">
+    <tbody>
+        <tr>
+            <td style="text-align: left;width: 60%">
+            </td>
+            <td style="text-align: center;">
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: left;width: 60%">
+            </td>
+            <td style="text-align: right; font-style: italic">
+                <b>Mẫu số 01/PLI</b>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: left;width: 60%">
+            </td>
+
+            <td style="text-align: center; font-style: italic">
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" style="text-align: center; font-weight: bold; font-size: 20px;">
+                BÁO CÁO<br>TÌNH HÌNH SỬ DỤNG LAO ĐỘNG
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center; font-size: 12px; font-style: italic">
+                Ngày.....tháng....năm....
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div id="data_body" style="font-size:12px;">
+    <p style="text-align: left;font-weight: bold;font-size:14px">
+        1. Thông tin chung về doanh nghiệp, cơ
+        quan, tổ chức:
+    </p>
+    <p style="margin-left: 110px;">
+        Tên doanh nghiệp, cơ quan tổ chức: <span style="font-weight:normal !important;text-transform:none;">@ViewData["name"]</span>
+    </p><p style="margin-left: 110px;">Địa chỉ:<span style="font-weight:normal !important; text-transform:none;">@ViewData["address"]</span></p>
+    <p style="margin-left: 110px;">Điện thoại: <span style="font-weight:normal !important;text-transform:none;">@ViewData["phone"]</span></p>
+    <p style="margin-left: 110px;">Fax: <span style="font-weight:normal !important;text-transform:none;">@ViewData["fax"]</span></p>
+    <p style="margin-left: 110px;">Email: <span style="font-weight:normal !important;text-transform:none;">@ViewData["email"]</span></p>
+    <p style="margin-left: 110px;">Mã số đăng ký doanh nghiệp: <span style="font-weight:normal !important;text-transform:none;">@ViewData["dkkd"]</span></p>
+
+    <p style="margin-left: 110px;">Ngành, nghề kinh doanh chính: <span style="font-weight:normal !important;text-transform:none;">@ViewData["tennn"]</span></p>
+
+    <p style="text-align: left;font-weight: bold;font-size:14px">2.Thông tin tình hình sử dụng lao động của đơn vị</p>
+</div>
+
+
+<table id="data_body1" class="money" cellspacing="0" cellpadding="0" border="1" style="margin: 20px auto; border-collapse: collapse;font:normal 11px Times, serif;">
+    <thead>
+        <tr style="padding-left: 2px;padding-right: 2px">
+            <th style="width: 3%;" rowspan="3">S<br>T<br>T</th>
+            <th style="width: 5%;" rowspan="3">Họ và tên</th>
+            <th rowspan="3">Mã số<br>BHXH</th>
+            <th rowspan="3">Ngày sinh</th>
+            <th rowspan="3" style="width: 3%;">Giới tính</th>
+            <th rowspan="3">CCCD/<br>CMND</th>
+            <th style="width: 5%;" rowspan="3">Chức vụ</th>
+            <th style="width: 20%;" colspan="4">Vị trí việc làm</th>
+            <th colspan="6">Tiền lương</th>
+            <th colspan="2" rowspan="2">Ngành nghề nặng nhọc,<br>độc hại</th>
+            <th colspan="5">Loại và hiệu lực hợp đồng lao động</th>
+            <th rowspan="3" style="width: 5%;">Thời điểm<br>đơn vị<br>bắt đầu<br>đóng BHXH</th>
+            <th rowspan="3" style="width: 5%;">Thời điểm<br>đơn vị<br>kết thúc<br>đóng BHXH</th>
+            <th rowspan="3">Ghi chú</th>
+        </tr>
+        <tr>
+            <th rowspan="2" style="width: 3%;">Nhà<br>quản<br>lý</th>
+            <th rowspan="2" style="width: 3%;">Chuyên<br>môn<br>kỹ<br>thuật<br>bậc<br>cao</th>
+            <th rowspan="2" style="width: 3%;">Chuyên<br>môn<br>kỹ<br>thuật<br>bậc<br>trung</th>
+            <th rowspan="2" style="width: 3%;">Khác</th>
+            <th rowspan="2" style="width: 3%;">Hệ số<br>mức lương</th>
+            <th colspan="5" style="width: 3%;">Phụ cấp</th>
+            <th rowspan="2" style="width: 3%;">Ngày<br>bắt đầu<br>HĐLĐ<br>không<br>xác định<br>thời hạn</th>
+            <th colspan="2" style="width: 3%;">Hiệu lực HĐLĐ<br>xác định thời hạn</th>
+            <th colspan="2" style="width: 3%;">Hiệu lực HĐLĐ<br>khác</th>
+        </tr>
+        <tr>
+            <th style="width: 3%;">Chức vụ</th>
+            <th style="width: 3%;">Thâm<br>niên<br>vượt<br>khung</th>
+            <th style="width: 3%;">Thâm<br>niên<br>nghề</th>
+            <th style="width: 3%;">Phụ<br>cấp<br>lương</th>
+            <th style="width: 3%;">Các<br>khoản<br>bổ<br>sung</th>
+            <th style="width: 3%;">Ngày<br>bắt<br>đầu</th>
+            <th style="width: 3%;">Ngày<br>kết<br>thúc</th>
+            <th style="width: 3%;">Ngày<br>bắt<br>đầu</th>
+            <th style="width: 3%;">Ngày<br>kết<br>thúc</th>
+            <th style="width: 3%;">Ngày<br>bắt<br>đầu</th>
+            <th style="width: 3%;">Ngày<br>kết<br>thúc</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            foreach(var item in Model)
+            {
+                <tr class="text-center">
+                    <td>@(record_id++)</td>
+                    <td>@item.hoten</td>
+                    <td>null</td>
+                    <td>@Helpers.ConvertDateToStr((DateTime)item.ngaysinh)</td>
+                    <td>@item.gioitinh</td>
+                    <td>@item.ccnd</td>
+                    <td>@item.chucvu</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>@Helpers.ConvertDateToStr((DateTime)item.bdhopdong)</td>
+                    <td></td>
+                    <td></td>
+
+                    <td></td>
+                    <td></td>
+                    <td>@Helpers.ConvertDateToStr((DateTime)item.bdbhxh)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            }
+        }
+        
+    </tbody>
+</table>
+<table id="data_footer" class="header" width="96%" border="0" cellspacing="0" cellpadding="8" style="margin:20px auto; text-align: center;">
+
+    <tbody>
+        <tr style="font-weight: bold">
+            <td style="text-align: center;" width="50%">Người lập bảng</td>
+            <td style="text-align: center;" width="50%"></td>
+        </tr>
+        <tr style="font-style: italic">
+            <td style="text-align: center;" width="50%">(Ghi rõ họ tên)</td>
+            <td style="text-align: center;" width="50%">(Ký tên, đóng dấu)</td>
+        </tr>
+        <tr>
+            <td><br><br><br><br><br><br></td>
+        </tr>
+
+        <tr>
+            <td style="text-align: center;" width="50%"></td>
+            <td style="text-align: center;" width="50%"></td>
+        </tr>
+    </tbody>
+</table>

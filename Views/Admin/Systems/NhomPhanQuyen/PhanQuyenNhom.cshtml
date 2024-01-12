@@ -1,0 +1,162 @@
+﻿@{
+    ViewData["Title"] = "Phân quyền nhóm";
+    int record_id = 1;
+    var stt = ViewData["id_nhom"];
+}
+@model IEnumerable<QLVL_Binh.ViewModels.Systems.VM_DsNhomTaiKhoan_PhanQuyen>
+
+@section custom_style{
+    <link rel="stylesheet" type="text/css" href="~/Admin/assets/datatables/bootstrap/dataTables.bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="~/Admin/assets/datatables/bootstrap/dataTables.css" />
+}
+
+@section custom_script{
+    <script type="text/javascript" src="~/Admin/assets/datatables/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="~/Admin/assets/datatables/bootstrap/dataTables.bootstrap.js"></script>
+    <script src="~/Admin/assets/datatables/scripts/table-managed.js"></script>
+    <script>
+        $(document).ready(function () {
+            TableManaged.init();
+        });
+
+
+    </script>
+}
+
+<div class="card card-custom">
+    <div class="card-header flex-wrap border-0 pt-6 pb-0">
+        <div class="card-title">
+            <h3 class="card-label">
+                Danh sách<small>Phân quyền nhóm</small><br />
+            </h3>
+        </div>
+        <div class="card-toolbar">
+        </div>
+    </div>
+    <hr />
+    <div class="card-body">
+        <table class="table table-striped table-bordered table-hover" id="sample_3">
+            <thead>
+                <tr class="text-center">
+                    <th rowspan="2" colspan="1">STT</th>
+                    <th rowspan="2" colspan="1">Mã số</th>
+                    <th rowspan="2" colspan="1">Tên chức năng</th>
+                    <th colspan="3" rowspan="1">Phân quyền</th>
+                    <th rowspan="2" colspan="1">Thao tác</th>
+                </tr>
+                <tr class="text-center">
+                    <th rowspan="1" colspan="1">Xem hồ sơ</th>
+                    <th rowspan="1" colspan="1">Thay đổi</th>
+                    <th rowspan="1" colspan="1">Gửi/Duyệt<br>hồ sơ</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null)
+                {
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@(item.stt)</td>
+                            <td>@item.machucnang</td>
+                            <td>@item.tencn</td>
+                            <td>
+                                @if (item.danhsach == true)
+                                {
+                                    <button class="btn btn-sm btn-clean btn-icon">
+                                        <i class="icon-lg la fa-check text-primary  icon-2x"></i>
+                                    </button>
+                                }
+                                else
+                                {
+                                    <button class="btn btn-sm btn-clean btn-icon">
+                                        <i class="icon-lg la fa-times-circle text-danger  icon-2x"></i>
+                                    </button>
+                                }
+                            </td>
+                            <td>
+                                @if (item.thaydoi == true)
+                                {
+                                    <button class="btn btn-sm btn-clean btn-icon">
+                                        <i class="icon-lg la fa-check text-primary  icon-2x"></i>
+                                    </button>
+                                }
+                                else
+                                {
+                                    <button class="btn btn-sm btn-clean btn-icon">
+                                        <i class="icon-lg la fa-times-circle text-danger  icon-2x"></i>
+                                    </button>
+                                }
+                            </td>
+                            <td>
+                                @if (item.hoanthanh == true)
+                                {
+                                    <button class="btn btn-sm btn-clean btn-icon">
+                                        <i class="icon-lg la fa-check text-primary  icon-2x"></i>
+                                    </button>
+                                }
+                                else
+                                {
+                                    <button class="btn btn-sm btn-clean btn-icon">
+                                        <i class="icon-lg la fa-times-circle text-danger  icon-2x"></i>
+                                    </button>
+                                }
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-sm btn-clean btn-icon" title="Chỉnh sửa" data-target="#PhanQuyenNhom_Update_Modal" data-toggle="modal" onclick="SetPhanQuyenNhom_Update('@item.id','@stt')">
+                                    <i class="icon-lg la la-edit text-warning"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+
+
+<!--PhanQuyenNhom_Update Modal-->
+<form asp-controller="NhomPhanQuyen" asp-action="PhanQuyenNhom_Update" method="post" enctype="multipart/form-data" id="NhomPhanQuyen_PhanQuyenNhom_Update">
+    <div class="modal fade" id="PhanQuyenNhom_Update_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="card-label text-dark">
+                        Thông tin danh mục
+                    </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i aria-hidden="true" class="ki ki-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body" id="PhanQuyenNhom_Update">
+                </div>
+                <div class="modal-footer">
+                    <button type="reset" class="btn btn-default font-weight-bold" data-dismiss="modal">Hủy thao tác</button>
+                    <button type="button" class="btn btn-primary font-weight-bold" onclick="PhanQuyenNhom_UpdateValidate()">Đồng ý</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script>
+    function SetPhanQuyenNhom_Update(id_edit, id_nhom) {
+        $.ajax({
+            url: '/NhomPhanQuyen/PhanQuyenNhom/Edit',
+            type: 'POST',
+            data: {
+                id: id_edit,
+                id_nhom: id_nhom,
+            },
+            dataType: 'JSON',
+            success: function (data) {
+                if (data.status == 'success') {
+                    $('#PhanQuyenNhom_Update').replaceWith(data.message);
+                }
+            }
+        })
+    }
+
+
+</script>

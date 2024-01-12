@@ -1,0 +1,308 @@
+﻿@{
+    int record_id = 1;
+}
+@model IEnumerable<QLVL_Binh.ViewModels.Systems.VM_TuyenDung>
+
+@section custom_style{
+    <link rel="stylesheet" type="text/css" href="~/Admin/assets/datatables/bootstrap/dataTables.bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="~/Admin/assets/datatables/bootstrap/dataTables.css" />
+}
+
+@section custom_script{
+    <script type="text/javascript" src="~/Admin/assets/datatables/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="~/Admin/assets/datatables/bootstrap/dataTables.bootstrap.js"></script>
+    <script src="~/Admin/assets/datatables/scripts/table-managed.js"></script>
+    <script>
+        $(document).ready(function () {
+            TableManaged.init();
+        });
+
+
+    </script>
+}
+
+<div class="card card-custom">
+    <div class="card-header flex-wrap border-0 pt-6 pb-0">
+        <div class="card-title">
+            <h3 class="card-label">
+                Danh sách tuyển dụng<small>@ViewData["doanhnghiep"]</small><br />
+            </h3>
+        </div>
+        <div class="card-toolbar">
+            <a class="btn btn-primary font-weight-bolder" asp-controller="TuyenDung" asp-action="Create" asp-route-user="@ViewData["user"]">
+                <i class="la la-plus"></i>Thêm mới
+            </a>
+        </div>
+    </div>
+    <hr />
+    <div class="card-body">
+        <table class="table table-striped table-bordered table-hover" id="sample_3">
+            <thead>
+                <tr style="text-align:center">
+                    <th>Stt</th>
+                    <th>Tên công việc</th>
+                    <th>Vị trí</th>
+                    <th>Số lượng</th>
+                    <th>Ngày đăng</th>
+                    <th>Hạn cuối</th>
+                    <th>Duyệt</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null)
+                {
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@(record_id++)</td>
+                            <td>@item.noidung</td>
+                            <td>@item.name</td>
+                            <td>@item.datuyen/@item.datuyentutt/@item.soluong</td>
+                            <td>@Helpers.ConvertDateToStr((DateTime)item.created_at)</td>
+                            <td>@Helpers.ConvertDateToStr((DateTime)item.thoihan)</td>
+                            @if (item.state == 0)
+                            {
+                                <td>Chưa duyệt</td>
+                            }
+                            @if (item.state == 1)
+                            {
+                                <td>Đã duyệt</td>
+                            }
+                            @if (item.state == 2)
+                            {
+                                <td>Đã báo cáo</td>
+                            }
+                            <td>
+                                <button onclick="SetPrint('@item.id')" title="In mẫu" data-target="#Print_Modal" data-toggle="modal" class="btn btn-sm btn-clean btn-icon">
+                                    <i class="icon-lg la flaticon2-print text-primary"></i>
+                                </button>
+                                @if (item.state == 0)
+                                {
+                                    <button onclick="SetDuyet('@item.id')" title="Xét duyệt" data-target="#Xetduyet_Modal" data-toggle="modal" class="btn btn-sm btn-clean btn-icon">
+                                        <i class="icon-lg la la-send text-warning"></i>
+                                    </button>
+                                }
+                                @if (item.state == 1)
+                                {
+                                    <button onclick="SetBaocao('@item.id')" title="Báo cáo" data-target="#Baocao_Modal" data-toggle="modal" class="btn btn-sm btn-clean btn-icon">
+                                        <i class="icon-lg la la-check text-success"></i>
+                                    </button>
+                                }
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<!--print Modal-->
+<div class="modal fade" id="Print_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="card-label text-dark">
+                    Danh sách
+                </h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i aria-hidden="true" class="ki ki-close"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row text-left">
+                    <form asp-controller="DanhsachDN" asp-action="Print1" method="post">
+                        <div class="col-xl-12">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label>Đến dòng</label>
+                                <input type="number" class="form-control" id="linestop_excel" name="linestop_excel" value="111" />
+                            </div>
+                        </div>
+                    </form>
+                    <br>
+                    <form asp-controller="DanhsachDN" asp-action="Print2" method="post">
+                        <input type="text" id="id_print2" name="id_print2" hidden />
+                        <button type="submit" class="btn btn-light-default font-weight-bold">Mẫu 03a/PLI</button>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light-default font-weight-bold" data-dismiss="modal">Hủy thao tác</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--xet duyet Modal-->
+<form asp-controller="TuyenDung" asp-action="Xetduyet" method="post" enctype="multipart/form-data" id="xetduyetForm">
+    <div class="modal fade" id="Xetduyet_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="card-label">
+                        Đồng ý xét duyệt tin tuyển dụng?
+                    </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i aria-hidden="true" class="ki ki-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="id_Xetduyet" name="id_Xetduyet" hidden />
+                    <input type="text" id="user_Xetduyet" name="user_Xetduyet" hidden value="@ViewData["user"]" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light-default font-weight-bold" data-dismiss="modal">Hủy thao tác</button>
+                    <button type="submit" class="btn btn-primary font-weight-bold">Đồng ý</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!--bao cao Modal-->
+<form asp-controller="TuyenDung" asp-action="Baocao" method="post" enctype="multipart/form-data" id="baocaoForm">
+    <div class="modal fade" id="Baocao_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="card-label">
+                        Đồng ý gửi báo cáo tin tuyển dụng?
+                    </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i aria-hidden="true" class="ki ki-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="id_Baocao" name="id_Baocao" hidden />
+                    <input type="text" id="user_Baocao" name="user_Baocao" hidden value="@ViewData["user"]" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light-default font-weight-bold" data-dismiss="modal">Hủy thao tác</button>
+                    <button type="submit" class="btn btn-primary font-weight-bold">Đồng ý</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!--Create Modal-->
+<form asp-controller="TuyenDung" asp-action="Store" method="post" enctype="multipart/form-data" id="TuyenDung_store">
+    <div class="modal fade" id="Create_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="card-label text-dark">
+                        Thông tin tuyển dụng
+                    </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i aria-hidden="true" class="ki ki-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row text-left">
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Vị trí tuyển dụng</b></label>
+                                <input type="text" class="form-control" id="name" name="name" />
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Nội dung tuyển dụng</b></label>
+                                <input type="text" class="form-control" id="noidung" name="noidung" />
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Thời hạn tuyển dụng</b></label>
+                                <input type="date" class="form-control" name="thoihan" id="thoihan" />
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Nhân viên tuyển dụng</b></label>
+                                <input type="text" id="contact" name="contact" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Số điện thoại tuyển dụng</b></label>
+                                <input type="text" id="phonetd" name="phonetd" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Mail tuyển dụng</b></label>
+                                <input type="text" id="emailtd" name="emailtd" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Chức vụ tuyển dụng</b></label>
+                                <input type="text" id="chucvutd" name="chucvutd" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Yêu cầu tuyển dụng</b></label>
+                                <input type="text" id="yeucau" name="yeucau" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Số lượng tuyển dụng</b></label>
+                                <input type="text" id="soluong" name="soluong" class="form-control" />
+                            </div>
+                        </div>
+                        <input type="text" id="user" name="user" hidden value="@ViewData["user"]" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="reset" class="btn btn-default font-weight-bold" data-dismiss="modal">Hủy thao tác</button>
+                    <button type="button" class="btn btn-primary font-weight-bold" onclick="CreateValidate()">Đồng ý</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script>
+    function SetPrint(id) {
+        document.getElementById("id_print1").value = id;
+        document.getElementById("id_print2").value = id;
+    }
+
+    function CreateValidate() {
+        if ($('#name').val() == '') {
+            toastr.error("Vị trí tuyển dụng không được để trống!", "Lỗi!!!")
+        } else {
+            if ($('#noidung').val() == '') {
+                toastr.error("Nội dung tuyển dụng không được để trống!", "Lỗi!!!")
+            } else {
+                if ($('#contact').val() == '') {
+                    toastr.error("Nhân viên tuyển dụng không được để trống!", "Lỗi!!!")
+                } else {
+                    if ($('#phonetd').val() == '') {
+                        toastr.error("Số điện thoại tuyển dụng không được để trống!", "Lỗi!!!")
+                    } else {
+                        if ($('#chucvutd').val() == '') {
+                            toastr.error("Chức vụ tuyển dụng không được để trống!", "Lỗi!!!")
+                        } else {
+                            if ($('#yeucau').val() == '') {
+                                toastr.error("Yêu cầu tuyển dụng không được để trống!", "Lỗi!!!")
+                            } else {
+                                if ($('#soluong').val() == '') {
+                                    toastr.error("Số lượng tuyển dụng không được để trống!", "Lỗi!!!")
+                                } else {
+                                    document.getElementById("TuyenDung_store").submit();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+</script>

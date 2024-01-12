@@ -1,0 +1,294 @@
+﻿@{
+    var Tinh = (IEnumerable<QLVL_Binh.Models.Systems.danhmuchanhchinh>)ViewData["Tinh"]!;
+    var Huyen = (IEnumerable<QLVL_Binh.Models.Systems.danhmuchanhchinh>)ViewData["Huyen"]!;
+    var Xa = (IEnumerable<QLVL_Binh.Models.Systems.danhmuchanhchinh>)ViewData["Xa"]!;
+    var dvhcsn = (IEnumerable<QLVL_Binh.Models.Systems.donvihanhchinhsunghiep>)ViewData["dvhcsn"]!;
+}
+@section custom_script{
+
+}
+<!--Create Modal-->
+<form asp-controller="DanhsachDN" asp-action="Store" method="post" enctype="multipart/form-data" id="DanhsachDN_store">
+    <div class="modal fade" id="Create_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="card-label text-dark">
+                        Thông tin doanh nghiệp
+                    </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i aria-hidden="true" class="ki ki-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row text-left">
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Mã số kinh doanh</b></label>
+                                <input type="text" id="dkkd_create" name="dkkd_create" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Tên doanh nghiệp</b></label>
+                                <input type="text" id="name_create" name="name_create" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Quy mô</b></label>
+                                <input type="text" id="quymo_create" name="quymo_create" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Tình trạng hoạt động</b></label>
+                                <select type="text" id="Public_create" name="Public_create" class="form-control">
+                                    <option value="1">Hoạt động</option>
+                                    <option value="0">Dừng</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Số điện thoại </b></label>
+                                <input type="text" id="phone_create" name="phone_create" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Fax</b></label>
+                                <input type="text" id="fax_create" name="fax_create" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b> Website</b></label>
+                                <input type="text" id="website_create" name="website_create" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Email</b></label>
+                                <input type="text" id="email_create" name="email_create" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Tỉnh</b></label>
+                                <select type="text" id="tinh_create" name="tinh_create" class="form-control">
+                                    @if (Tinh != null)
+                                    {
+                                        foreach (var item in Tinh)
+                                        {
+                                            <option value="@item.maquocgia">@item.name</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Huyện</b></label>
+                                <select type="text" id="huyen_create" name="huyen_create" class="form-control" onchange="getListXa()">
+                                    @if (Huyen != null)
+                                    {
+                                        foreach (var item in Huyen)
+                                        {
+                                            <option value="@item.maquocgia">@item.name</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Xã</b></label>
+                                <select type="text" id="xa_create" name="xa_create" class="form-control">
+                                    @if (Xa != null)
+                                    {
+                                        foreach (var item in Xa)
+                                        {
+                                            <option value="@item.maquocgia">@item.name</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Tình trạng hoạt động</b></label>
+                                <select type="text" id="khuvuc_create" name="khuvuc_create" class="form-control">
+                                    <option value="1">Thành thị</option>
+                                    <option value="0">Nông thôn</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-12">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Địa chỉ</b></label>
+                                <input type="text" id="address_create" name="address_create" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Khu công nghiệp </b></label>
+                                <select type="text" id="khucn_create" name="khucn_create" class="form-control">
+                                    @foreach (var item in Helpers.KhuCN())
+                                    {
+                                        <option value="@item.MaKhuCN">@item.TenKhuCN</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Loại hình doanh nghiệp</b></label>
+                                <select type="text" id="loaihinh_create" name="loaihinh_create" class="form-control">
+                                    @foreach (var dv2 in dvhcsn.Where(x => x.capdo == 2))
+                                    {
+                                        <optgroup label="@dv2.tenhanhchinhsunghiep">
+                                            @{
+                                                var dv3 = dvhcsn.Where(t => t.magoc == dv2.maso);
+                                            }
+                                            @foreach (var item in dv3)
+                                            {
+                                                <!option value="@item.maso">@item.tenhanhchinhsunghiep</!option>
+                                            }
+                                        </optgroup>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Khu công nghiệp </b></label>
+                                <select type="text" id="nghanhnghe_create" name="nghanhnghe_create" class="form-control">
+                                    @foreach (var item in Helpers.NganhNgheKinhDoanh())
+                                    {
+                                        <option value="@item.MaNghanhNghe">@item.TenNghanhNghe</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="reset" class="btn btn-default font-weight-bold" data-dismiss="modal">Hủy thao tác</button>
+                    <button type="button" class="btn btn-primary font-weight-bold" onclick="CreateValidate()">Đồng ý</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!--print Modal-->
+<div class="modal fade" id="Print_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="card-label text-dark">
+                    Danh sách
+                </h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i aria-hidden="true" class="ki ki-close"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row text-left">
+                    <form asp-controller="DanhsachDN" asp-action="Print1" method="post">
+                        <input type="text" id="id_print1" name="id_print1" hidden/>
+                        <button type="submit" class="btn btn-light-default font-weight-bold">Mẫu 01/PLI (NĐ 145/2020)</button>
+                    </form>
+                    <br>
+                    <form asp-controller="DanhsachDN" asp-action="Print2" method="post">
+                        <input type="text" id="id_print2" name="id_print2" hidden />
+                        <button type="submit" class="btn btn-light-default font-weight-bold">Mẫu 02 (TT 01/2022)</button>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light-default font-weight-bold" data-dismiss="modal">Hủy thao tác</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    const input = document.getElementById("price");
+
+    input.addEventListener("keypress", function (event) {
+        const value = input.value;
+        if (!event.key.match(/[0-9.]/)) {
+            event.preventDefault();
+        } else {
+            const index = value.length;
+            if (index % 4 === 0 && index !== 0) {
+                let newValue = value.slice(0, index) + ",";
+                input.value = newValue;
+            }
+        }
+    });
+</script>
+<script>
+    function CreateValidate() {
+        if ($('#dkkd_create').val() == '') {
+            toastr.error("Mã số kinh doanh không được để trống!", "Lỗi!!!")
+        } else {
+            if ($('#name_create').val() == '') {
+                toastr.error("Tên doanh nghiệp không được để trống!", "Lỗi!!!")
+            } else {
+                if ($('#quymo_create').val() == '') {
+                    toastr.error("Quy mô không được để trống!", "Lỗi!!!")
+                } else {
+                    if ($('#phone_create').val() == '') {
+                        toastr.error("Số điện thoại không được để trống!", "Lỗi!!!")
+                    } else {
+                        if ($('#fax_create').val() == '') {
+                            toastr.error("Fax không được để trống!", "Lỗi!!!")
+                        } else {
+                            if ($('#website_create').val() == '') {
+                                toastr.error("Website không được để trống!", "Lỗi!!!")
+                            } else {
+                                if ($('#email_create').val() == '') {
+                                    toastr.error("Email không được để trống!", "Lỗi!!!")
+                                } else {
+                                    if ($('#address_create').val() == '') {
+                                        toastr.error("Địa chỉ không được để trống!", "Lỗi!!!")
+                                    } else {
+                                        document.getElementById("DanhsachDN_store").submit();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    function getListXa() {
+        var mahuyen = document.getElementById("huyen_create").value;
+        var maxa = document.getElementById("xa_create");
+
+        maxa.innerHTML = "";
+        fetch(`/DanhsachDN/GetXa?mahuyen=${mahuyen}`)
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(function (item) {
+                    var option = document.createElement("option");
+                    option.value = item.maquocgia;
+                    option.text = item.name;
+                    maxa.add(option);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+
+    }
+
+    function SetPrint(id) {
+        document.getElementById("id_print1").value = id;
+        document.getElementById("id_print2").value = id;
+    }
+
+</script>

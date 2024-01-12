@@ -1,0 +1,119 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Thống kê lao động trong tỉnh</h1>
+    <div class="sidebar-content flex-column-fluid pb-10 pt-9 px-5 px-lg-10">
+		<div class="row">
+			<div class="col-xl-4">
+				<div class="card card-custom bg-light-success card-shadowless gutter-b">
+					<!--begin::Body-->
+					<div class="card-body my-4">
+						<a href="#" class="card-title font-weight-bolder text-success font-size-h6 mb-4 text-hover-state-dark d-block">Người có việc làm</a>
+						<div class="font-weight-bold text-muted font-size-sm">
+							<span class="text-dark-75 font-weight-bolder font-size-h2 mr-2">@ViewData["nguoicovieclam"]</span>trong tổng @ViewData["tong"]
+						</div>
+						<div class="progress progress-xs mt-7 bg-success-o-60">
+							<div class="progress-bar bg-success" role="progressbar" style="width: @ViewData["nguoicovieclam_percent"]%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
+					</div>
+					<!--end::Body-->
+				</div>
+            </div>
+			<div class="col-xl-4">
+				<div class="card card-custom bg-light-warning card-shadowless gutter-b">
+					<!--begin::Body-->
+					<div class="card-body my-4">
+						<a href="#" class="card-title font-weight-bolder text-warning font-size-h6 mb-4 text-hover-state-dark d-block">Người thất nghiệp</a>
+						<div class="font-weight-bold text-muted font-size-sm">
+							<span class="text-dark-75 font-weight-bolder font-size-h2 mr-2">@ViewData["thatnghiep"]</span>trong tổng @ViewData["tong"]
+						</div>
+						<div class="progress progress-xs mt-7 bg-warning-o-60">
+							<div class="progress-bar bg-warning" role="progressbar" style="width: @ViewData["thatnghiep_percent"]%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
+					</div>
+					<!--end::Body-->
+				</div>
+			</div>
+			<div class="col-xl-4">
+				<div class="card card-custom bg-light-danger card-shadowless gutter-b">
+					<!--begin::Body-->
+					<div class="card-body my-4">
+						<a href="#" class="card-title font-weight-bolder text-danger font-size-h6 mb-4 text-hover-state-dark d-block">Người không tham gia hoạt động kinh tế</a>
+						<div class="font-weight-bold text-muted font-size-sm">
+							<span class="text-dark-75 font-weight-bolder font-size-h2 mr-2">@ViewData["khongthamgiahdkt"]</span>trong tổng @ViewData["tong"]
+						</div>
+						<div class="progress progress-xs mt-7 bg-danger-o-60">
+							<div class="progress-bar bg-danger" role="progressbar" style="width: @ViewData["khongthamgiahdkt_percent"]%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
+					</div>
+					<!--end::Body-->
+				</div>
+			</div>
+		</div>
+    </div>
+
+	<!--bieu do cau lao dong-->
+	<h1 class="display-4">Thống kê cầu lao động</h1>
+	<div class="sidebar-content flex-column-fluid pb-10 pt-9 px-5 px-lg-10">
+		<div class="row">
+			<div class="col-xl-3">
+				<div class="card card-custom bg-light-success card-shadowless gutter-b">
+					<!--begin::Body-->
+					<div class="card-body my-4">
+						<a href="#" class="card-title font-weight-bolder text-success font-size-h6 mb-4 text-hover-state-dark d-block">Doanh nghiệp đang hoạt động</a>
+						<div class="font-weight-bold text-muted font-size-sm">
+							<span class="text-dark-75 font-weight-bolder font-size-h2 mr-2">@ViewData["activeDn"]</span>trong tổng @ViewData["tongDn"]
+						</div>
+						<div class="progress progress-xs mt-7 bg-success-o-60">
+							<div class="progress-bar bg-success" role="progressbar" style="width: @ViewData["activeDn_percent"]%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
+					</div>
+					<!--end::Body-->
+				</div>
+			</div>
+			<div class="col-xl-3">
+				<div class="card card-custom bg-light-warning card-shadowless gutter-b">
+					<!--begin::Body-->
+					<div class="card-body my-4">
+						<a href="#" class="card-title font-weight-bolder text-warning font-size-h6 mb-4 text-hover-state-dark d-block">Lao động đang làm việc</a>
+						<div class="font-weight-bold text-muted font-size-sm">
+							<span class="text-dark-75 font-weight-bolder font-size-h2 mr-2">@ViewData["active_nguoilaodong"]</span>trong tổng @ViewData["tong_nguoilaodong"]
+						</div>
+						<div class="progress progress-xs mt-7 bg-warning-o-60">
+							<div class="progress-bar bg-warning" role="progressbar" style="width: @ViewData["active_nguoilaodong_percent"]%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
+					</div>
+					<!--end::Body-->
+				</div>
+			</div>
+			<div class="col-xl-3">
+				<div class="card card-custom bg-light-danger card-shadowless gutter-b">
+					<!--begin::Body-->
+					<div class="card-body my-4">
+						<a href="#" class="card-title font-weight-bolder text-danger font-size-h6 mb-4 text-hover-state-dark d-block">Tin tuyển dụng lao động</a>
+						<div class="font-weight-bold text-muted font-size-sm">
+							<span class="text-dark-75 font-weight-bolder font-size-h2 mr-2">@ViewData["tintd"]</span>
+						</div>
+						<div class="progress progress-xs mt-7 bg-light-danger"></div>
+					</div>
+					<!--end::Body-->
+				</div>
+			</div>
+			<div class="col-xl-3">
+				<div class="card card-custom bg-light-info card-shadowless gutter-b">
+					<!--begin::Body-->
+					<div class="card-body my-4">
+						<a href="#" class="card-title font-weight-bolder text-info font-size-h6 mb-4 text-hover-state-dark d-block">Vị trí tuyển dụng lao động</a>
+						<div class="font-weight-bold text-muted font-size-sm">
+							<span class="text-dark-75 font-weight-bolder font-size-h2 mr-2">@ViewData["total_vitrituyendung"]</span>
+						</div>
+						<div class="progress progress-xs mt-7 bg-light-info"></div>
+					</div>
+					<!--end::Body-->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

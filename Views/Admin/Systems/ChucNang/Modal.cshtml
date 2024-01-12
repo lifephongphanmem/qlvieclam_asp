@@ -1,0 +1,231 @@
+﻿@{
+    var stt = ViewData["stt"];
+    var chucnangs = (IEnumerable<QLVL_Binh.Models.Systems.chucnangs>)ViewData["chucnangs"];
+}
+
+<!--Create Modal-->
+<form asp-controller="ChucNang" asp-action="Store" method="post" enctype="multipart/form-data" id="ChucNang_store">
+    <div class="modal fade" id="Create_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="card-label text-dark">
+                        Thông tin địa bàn quản lý
+                    </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i aria-hidden="true" class="ki ki-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row text-left">
+                        <div class="col-xl-3">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Mã số</b></label>
+                                <input type="text" id="maso_create" name="maso_create" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-xl-3">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Tên chức năng</b></label>
+                                <input type="text" id="tencn_create" name="tencn_create" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Cấp độ</b></label>
+                                <select type="text" id="capdo_create" name="capdo_create" class="form-control" onchange="changeCapdo()">
+                                    <option value="1">Cấp 1</option>
+                                    <option value="2">Cấp 2</option>
+                                    <option value="3">Cấp 3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Chức năng gốc</b></label>
+                                <select type="text" id="machucnang_goc_create" name="machucnang_goc_create" class="form-control">
+                                    @foreach (var item in chucnangs)
+                                    {
+                                        <option value="@item.maso">@item.tencn</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Trạng thái</b></label>
+                                <select type="text" id="trangthai_create" name="trangthai_create" class="form-control">
+                                    <option value="1">Kích hoạt</option>
+                                    <option value="0">Khóa chức năng</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="reset" class="btn btn-default font-weight-bold" data-dismiss="modal">Hủy thao tác</button>
+                    <button type="button" class="btn btn-primary font-weight-bold" onclick="CreateValidate()">Đồng ý</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!--Edit Modal-->
+<form asp-controller="ChucNang" asp-action="Update" method="post" enctype="multipart/form-data" id="ChucNang_edit">
+    <div class="modal fade" id="Edit_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="card-label text-dark">
+                        Thông tin chức năng
+                    </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i aria-hidden="true" class="ki ki-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body" id="edit_thongtin">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light-default font-weight-bold" data-dismiss="modal">Hủy thao tác</button>
+                    <button type="button" class="btn btn-primary font-weight-bold" onclick="EditValidate()">Đồng ý</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!--Add Modal-->
+<form asp-controller="ChucNang" asp-action="Save" method="post" enctype="multipart/form-data" id="ChucNang_add">
+    <div class="modal fade" id="Add_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="card-label text-dark">
+                        Thông tin chức năng
+                    </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i aria-hidden="true" class="ki ki-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body" id="add_thongtin">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light-default font-weight-bold" data-dismiss="modal">Hủy thao tác</button>
+                    <button type="button" class="btn btn-primary font-weight-bold" onclick="AddValidate()">Đồng ý</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    function changeCapdo() {
+        var level = document.getElementById("capdo_create").value;
+        var machucnang_goc_createUpdate = document.getElementById("machucnang_goc_create");
+
+        machucnang_goc_createUpdate.innerHTML = "";
+
+        fetch(`/ChucNang/GetCapdo?level=${level}`)
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(function (item) {
+                    var option = document.createElement("option");
+                    option.value = item.maso;
+                    option.text = item.tencn;
+                    machucnang_goc_createUpdate.add(option);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
+    function CreateValidate() {
+        if ($('#maso_create').val() == '') {
+            toastr.error("Mã số không được để trống!", "Lỗi!!!")
+        } else {
+            if ($('#tencn_create').val() == '') {
+                toastr.error("Tên chức năng không được để trống!", "Lỗi!!!")
+            } else {
+                document.getElementById("ChucNang_store").submit();
+            }
+        }
+    }
+
+    function changeCapdoEdit() {
+        var level = document.getElementById("capdo_edit").value;
+        var machucnang_goc_createUpdate = document.getElementById("machucnang_goc_edit");
+
+        machucnang_goc_createUpdate.innerHTML = "";
+
+        fetch(`/ChucNang/GetCapdo?level=${level}`)
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(function (item) {
+                    var option = document.createElement("option");
+                    option.value = item.maso;
+                    option.text = item.tencn;
+                    machucnang_goc_createUpdate.add(option);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
+    function EditValidate() {
+        if ($('#maso_edit').val() == '') {
+            toastr.error("Mã số không được để trống!", "Lỗi!!!")
+        } else {
+            if ($('#tencn_edit').val() == '') {
+                toastr.error("Tên chức năng không được để trống!", "Lỗi!!!")
+            } else {
+                document.getElementById("ChucNang_edit").submit();
+            }
+        }
+    }
+
+    function SetEdit(id_edit) {
+        $.ajax({
+            url: '/ChucNang/Edit',
+            type: 'POST',
+            data: {
+                id: id_edit
+            },
+            dataType: 'JSON',
+            success: function (data) {
+                if (data.status == 'success') {
+                    $('#edit_thongtin').replaceWith(data.message);
+                }
+            }
+        })
+    }
+
+    function SetDelete(id) {
+        document.getElementById("id_delete").value = id;
+    }
+
+    function SetAdd(id_add) {
+        $.ajax({
+            url: '/ChucNang/Add',
+            type: 'POST',
+            data: {
+                id: id_add
+            },
+            dataType: 'JSON',
+            success: function (data) {
+                if (data.status == 'success') {
+                    $('#add_thongtin').replaceWith(data.message);
+                }
+            }
+        })
+    }
+
+    function AddValidate() {
+        if ($('#maso_add').val() == '') {
+            toastr.error("Mã số không được để trống!", "Lỗi!!!")
+        } else {
+            if ($('#tencn_add').val() == '') {
+                toastr.error("Tên chức năng không được để trống!", "Lỗi!!!")
+            } else {
+                document.getElementById("ChucNang_add").submit();
+            }
+        }
+    }
+</script>

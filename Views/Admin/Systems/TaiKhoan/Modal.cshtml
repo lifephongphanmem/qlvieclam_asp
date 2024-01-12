@@ -1,0 +1,209 @@
+﻿@{
+    var stt = ViewData["stt"];
+    var DonViQuanLy = (IEnumerable<QLVL_Binh.Models.Systems.dmdonvi>)ViewData["DonViQuanLy"];
+    var DonViBaoCao = (IEnumerable<QLVL_Binh.Models.Systems.dmdonvi>)ViewData["DonViBaoCao"];
+    var DSNhomTaiKhoan = (IEnumerable<QLVL_Binh.Models.Systems.dsnhomtaikhoan>)ViewData["DSNhomTaiKhoan"];
+}
+<!--Create Modal-->
+<form asp-controller="TaiKhoan" asp-action="Store" method="post" enctype="multipart/form-data" id="TaiKhoan_store">
+    <div class="modal fade" id="Create_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="card-label text-dark">
+                        Thông tin tài khoản
+                    </h3>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i aria-hidden="true" class="ki ki-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row text-left">
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Đơn vị quản lý</b></label>
+                                <select type="text" id="madv_create" name="madv_create" class="form-control">
+                                    @foreach (var item in DonViQuanLy)
+                                    {
+                                        <option value="@item.madv">@item.tendv</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Đơn vị báo cáo</b></label>
+                                <select type="text" id="madvbc_create" name="madvbc_create" class="form-control">
+                                    @foreach (var item in DonViBaoCao)
+                                    {
+                                        <option value="@item.madv">@item.tendv</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Tên tài khoản</b></label>
+                                <input type="text" id="name_create" name="name_create" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Tài khoản truy cập</b></label>
+                                <input type="text" id="username_create" name="username_create" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label><b>Phân loại</b></label>
+                                <select type="text" id="LoaitaiKhoan_create" name="LoaitaiKhoan_create" class="form-control">
+                                    <option value="tonghop">Tổng hợp</option>
+                                    <option value="nhaplieu">Nhập liệu</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label style="font-weight:bold">Cấp độ: </label>
+                                <select type="text" id="capdo_create" name="capdo_create" class="form-control">
+                                    <option value="T">Tài khoản cấp tỉnh</option>
+                                    <option value="H">Tài khoản cấp huyện</option>
+                                    <option value="X">Tài khoản cấp xã</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label style="font-weight:bold">Mật khẩu: </label>
+                                <input type="password" id="password_create" name="password_create" class="form-control" />
+                                <span class="error errorpass text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="form-group fv-plugins-icon-container">
+                                <label style="font-weight:bold">Nhóm chức năng:</label>
+                                <select type="text" id="manhomchucnang_create" name="manhomchucnang_create" class="form-control">
+                                    @foreach (var item in DSNhomTaiKhoan)
+                                    {
+                                        <option value="@item.manhomchucnang">@item.tennhomchucnang</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="reset" class="btn btn-default font-weight-bold" data-dismiss="modal">Hủy thao tác</button>
+                    <button type="button" class="btn btn-primary font-weight-bold" onclick="CreateValidate()">Đồng ý</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!--Edit Modal-->
+<form asp-controller="TaiKhoan" asp-action="Update" method="post" enctype="multipart/form-data" id="TaiKhoan_edit">
+    <div class="modal fade" id="Edit_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="card-label text-dark">
+                        Thông tin địa bàn quản lý
+                    </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i aria-hidden="true" class="ki ki-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body" id="edit_thongtin">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light-default font-weight-bold" data-dismiss="modal">Hủy thao tác</button>
+                    <button type="button" class="btn btn-primary font-weight-bold" onclick="EditValidate()">Đồng ý</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!--Delete Modal-->
+<form asp-controller="TaiKhoan" asp-action="Delete" method="post" enctype="multipart/form-data">
+    <div class="modal fade" id="Delete_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="card-label text-dark">
+                        Đồng ý xóa???
+                    </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i aria-hidden="true" class="ki ki-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row text-left">
+                        <input hidden id="id_delete" name="id_delete" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light-default font-weight-bold" data-dismiss="modal">Hủy thao tác</button>
+                    <button type="submit" class="btn btn-primary font-weight-bold">Đồng ý</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script>
+    function CreateValidate() {
+        if ($('#name_create').val() == '') {
+            toastr.error("Tên tài khoản không được để trống!", "Lỗi!!!")
+        } else {
+            if ($('#username_create').val() == '') {
+                toastr.error("Tài khoản truy cập không được để trống!", "Lỗi!!!")
+            } else {
+                document.getElementById("TaiKhoan_store").submit();
+            }
+        }
+
+        var pass = document.querySelector("#TaiKhoan_store #password_create").value;
+        var expr = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+        if (!expr.test(pass)) {
+            document.querySelector(".errorpass").innerHTML = "Mật khẩu phải có ít nhất 6 ký tự và không quá 20 ký tự, bao gồm ít nhất 1 chữ cái viết hoa, 1 chữ cái viết thường và một chữ số ";
+        } else {
+            Store_Modal_Reload('/TaiKhoan/Store', '#TaiKhoan_store');
+        }
+    }
+    function EditValidate() {
+        if ($('#madb_edit').val() == '') {
+            toastr.error("Mã địa bàn được để trống!", "Lỗi!!!")
+        } else {
+            if ($('#name_edit').val() == '') {
+                toastr.error("Tên địa bàn được để trống!", "Lỗi!!!")
+            } else {
+                document.getElementById("TaiKhoan_store").submit();
+            }
+        }
+    }
+
+    function SetEdit(id_edit) {
+        $.ajax({
+            url: '/TaiKhoan/Edit',
+            type: 'POST',
+            data: {
+                id: id_edit
+            },
+            dataType: 'JSON',
+            success: function (data) {
+                if (data.status == 'success') {
+                    $('#edit_thongtin').replaceWith(data.message);
+                }
+            }
+        })
+    }
+
+    function SetDelete(id) {
+        document.getElementById("id_delete").value = id;
+    }
+</script>

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\QLVL_Binh.props" />
+</Project>
