@@ -27,37 +27,40 @@ namespace QLVL_Binh.Controllers.Admin.CungLaoDong
 
         [Route("CungLaoDong")]
         [HttpGet]
-        public IActionResult Index(string loai,string huyen,string xa,string kydieutra)
+        public IActionResult Index(string tinhtrang, string huyen, string xa, string kydieutra)
         {
             var Madv = "";
-            if(string.IsNullOrEmpty(xa) ) { 
+            if (string.IsNullOrEmpty(xa))
+            {
                 Madv = _db.dmdonvi.FirstOrDefault()!.madv!;
             }
             else
             {
-                Madv= _db.dmdonvi.Where(x=>x.madiaban== xa).FirstOrDefault()!.madv!;
+                Madv = _db.dmdonvi.Where(x => x.madiaban == xa).FirstOrDefault()!.madv!;
             }
 
             kydieutra = (string.IsNullOrEmpty(kydieutra)) ? "2022" : kydieutra;
-            var model = _db.nhankhau.Where(x=>x.madv==Madv && x.kydieutra==kydieutra).AsQueryable();
-            
-            if (loai == "vieclam")
+            var model = _db.nhankhau.Where(x => x.madv == Madv && x.kydieutra == kydieutra).AsQueryable();
+            if (string.IsNullOrEmpty(tinhtrang))
             {
-                model = model.Where(x => x.nguoicovieclam == "1");
-            }
-            if(loai== "thatnghiep")
-            {
-                model = model.Where(x => x.thatnghiep == "1");
-            }
-            if(loai== "hdkt")
-            {
-                model = model.Where(x => x.khongthamgiahdkt == "1");
+                if (tinhtrang == "1")
+                {
+                    model = model.Where(x => x.tinhtranghdkt == "1");
+                }
+                if (tinhtrang == "2")
+                {
+                    model = model.Where(x => x.tinhtranghdkt == "2");
+                }
+                if (tinhtrang == "3")
+                {
+                    model = model.Where(x => x.tinhtranghdkt == "3");
+                }
             }
             /*if (loai == null)
             {
                 model = model.Where(x => x.nguoicovieclam == "1");
             }*/
-            ViewData["loai"] = loai;
+            ViewData["tinhtrang"] = tinhtrang;
             ViewData["mahuyen"] = huyen;
             ViewData["maxa"] = xa;
             ViewData["kydieutra"] = kydieutra;
@@ -73,6 +76,71 @@ namespace QLVL_Binh.Controllers.Admin.CungLaoDong
             }
             return View("Views/Admin/CungLaoDong/Index.cshtml", model);
 
+        }
+
+        [Route("CungLaoDong/ThongTin_Print")]
+        [HttpGet]
+        public ActionResult ThongTin_Print(long id,long xa) {
+            var model=_db.nhankhau.FirstOrDefault(x=>x.id== id);
+            ViewData["hoten"] = model!.hoten;
+            ViewData["ngaysinh"] = model!.ngaysinh;
+            ViewData["cccd"] = model!.cccd;
+            ViewData["gioitinh"] = model!.gioitinh;
+            ViewData["thuongtru"] = model!.thuongtru;
+            ViewData["trinhdogiaoduc"] = model!.trinhdogiaoduc;
+            ViewData["chuyenmonkythuat"] = model!.chuyenmonkythuat;
+            ViewData["chuyennganh"] = model!.chuyennganh;
+            ViewData["doituongtimvieclam"] = model!.doituongtimvieclam;
+            ViewData["vieclammongmuon"] = model!.vieclammongmuon;
+            ViewData["trinhdochuyenmonmuonhoc"] = model!.trinhdochuyenmonmuonhoc;
+            var xaId= _db.danhmuchanhchinh.FirstOrDefault(x => x.id == xa);
+            ViewData["xa"] = xaId!.name;
+            ViewData["huyen"] = _db.danhmuchanhchinh.FirstOrDefault(x=>x.maquocgia==xaId.parent)!.name;
+            return View("Views/Admin/CungLaoDong/ThongTin_Print.cshtml");
+        }
+
+        [Route("CungLaoDong/NguoiTimViec")]
+        [HttpGet]
+        public IActionResult NguoiTimViec(string huyen, string xa, string kydieutra)
+        {
+            var Madv = "";
+            if (string.IsNullOrEmpty(xa))
+            {
+                Madv = _db.dmdonvi.FirstOrDefault()!.madv!;
+            }
+            else
+            {
+                Madv = _db.dmdonvi.Where(x => x.madiaban == xa).FirstOrDefault()!.madv!;
+            }
+
+            kydieutra = (string.IsNullOrEmpty(kydieutra)) ? "2022" : kydieutra;
+            var model = _db.nhankhau.Where(x => x.madv == Madv && x.kydieutra == kydieutra).AsQueryable();
+            /*if (loai == null)
+            {
+                model = model.Where(x => x.nguoicovieclam == "1");
+            }*/
+            ViewData["mahuyen"] = huyen;
+            ViewData["maxa"] = xa;
+            ViewData["kydieutra"] = kydieutra;
+            //ViewData["Tinh"] = _db.danhmuchanhchinh.Where(t => string.IsNullOrEmpty(t.parent) || t.parent == "0");
+            ViewData["Huyen"] = _db.danhmuchanhchinh.Where(t => t.capdo == "H");
+            if (string.IsNullOrEmpty(xa))
+            {
+                ViewData["Xa"] = _db.danhmuchanhchinh.Where(t => t.capdo == "X");
+            }
+            else
+            {
+                ViewData["Xa"] = _db.danhmuchanhchinh.Where(t => t.capdo == "X" && t.parent == huyen);
+            }
+            return View("Views/Admin/CungLaoDong/Index.cshtml", model);
+
+        }
+
+        [Route("CungLaoDong/Test")]
+        [HttpGet]
+        public IActionResult Test()
+        {
+            return View("Views/Admin/CungLaoDong/ThongTin_NguoiTimViec_Print.cshtml");
         }
     }
 }

@@ -1,0 +1,17 @@
+
+select distinct madv from nhankhau
+--select distinct khongthamgiahdkt from nhankhau
+--select count(*) from nhankhau
+
+--update nhankhau set thatnghiep = case when rand() <= 0.5 then '1' else '0' end
+--update nhankhau set khongthamgiahdkt = case when id % 3 = 0 then '1' else '0' end
+--update nhankhau set updated_at = GETDATE();
+
+select * from danhmuchanhchinh
+select * from dmdonvi where madv='1671615526'
+
+--doc cac gia tri khac nhau trong madv roi dem xem bao nhieu row co value day
+SELECT madv, COUNT(*) AS row_count,id
+FROM company
+WHERE madv IS NOT NULL
+GROUP BY madv,id;

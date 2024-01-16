@@ -197,15 +197,15 @@
             </div>
             <div class="modal-body">
                 <div class="row text-left">
-                    <form asp-controller="DanhsachDN" asp-action="Print1" method="post">
-                        <input type="text" id="id_print1" name="id_print1" hidden/>
-                        <button type="submit" class="btn btn-light-default font-weight-bold">Mẫu 01/PLI (NĐ 145/2020)</button>
+                    <form asp-controller="TuyenDung" asp-action="NhuCauTd_Print" method="post" target="_blank">
+                        <input type="text" id="id_print1" name="id_print1" hidden=""/>
+                        <button type="submit" class="btn btn-light-default font-weight-bold">1. Mẫu 02 - Thông tin nhu cầu tuyển dụng</button>
                     </form>
                     <br>
-                    <form asp-controller="DanhsachDN" asp-action="Print2" method="post">
-                        <input type="text" id="id_print2" name="id_print2" hidden />
+                    @* <form asp-controller="DanhsachDN" asp-action="DangKyVL" method="post">
+                        <input type="text" id="id_print2" name="id_print2" hidden=""/>
                         <button type="submit" class="btn btn-light-default font-weight-bold">Mẫu 02 (TT 01/2022)</button>
-                    </form>
+                    </form> *@
                 </div>
             </div>
             <div class="modal-footer">

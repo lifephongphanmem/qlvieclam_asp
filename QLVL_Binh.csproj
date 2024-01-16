@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <Folder Include="Views\Admin\Danhmuc\ChuyenMonDaoTao\" />
+    <Folder Include="Views\Admin\NewFolder\" />
     <Folder Include="Views\Admin\NhiemVuTTDVVL\" />
   </ItemGroup>
 

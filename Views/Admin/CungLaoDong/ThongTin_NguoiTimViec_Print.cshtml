@@ -1,0 +1,1166 @@
+﻿@{
+    Layout = "_LayoutPrint";
+    var record_id = 1;
+}
+
+
+
+<table id="data_header" width="96%" cellspacing="0" cellpadding="8" style="font-size: 12px">
+    <tbody>
+        <tr>
+            <td style="vertical-align: top;text-align: left">
+                <p>Tỉnh/thành phố: Quảng Bình</p>
+                <p>Quận/huyện/thị xã: @ViewData["xa"]</p>
+                <p>Xã/phường/thị trấn: @ViewData["huyen"]</p>
+            </td>
+            <td class="text-right" style="font-style:italic">Mẫu số 02</td>
+        </tr>
+    </tbody>
+</table>
+<table id="data_body" border="0" cellspacing="0" cellpadding="0" width="80%">
+    <tbody>
+        <tr>
+            <td colspan="10" style="border:solid windowtext 1.0pt;text-align: left" ">
+                <p style="margin-top:6.0pt">
+                    <b>
+                        <span style="font-size:9.5pt;">1. Thông tin cá nhân</span>
+                    </b>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="50%" colspan="6" style="width:50.04%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">Họ và tên: …………………………………………</span>
+                </p>
+            </td>
+            <td width="49%" colspan="4" style="width:49.96%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">Số CCCD/CMND: ……………………………….</span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="50%" colspan="6" style="width:50.04%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">Mã số BHXH ……………………………………..</span>
+                </p>
+            </td>
+            <td width="49%" colspan="4" style="width:49.96%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">
+                        Ngày sinh: ………… Giới tính: [  ]
+                        Nam   [  ] Nữ
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="50%" colspan="6" style="width:50.04%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">Dân tộc: …………………………………………..</span>
+                </p>
+            </td>
+            <td width="49%" colspan="4" style="width:49.96%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">Tôn giáo: ………………………………………….</span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="100%" colspan="10" style="width:100.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">
+                        Nơi thường trú: Tỉnh ………………… huyện ………………… xã
+                        ……………………………………
+                    </span>
+                </p>
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">
+                        Địa chỉ cụ thể:
+                        ……………………………………………………………………………………………..
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="100%" colspan="10" style="width:100.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">
+                        Nơi ở hiện nay: Tỉnh ………………… huyện …………………
+                        xã ……………………………………
+                    </span>
+                </p>
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">
+                        Địa chỉ cụ thể:
+                        ……………………………………………………………………………………………..
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="100%" colspan="10" style="width:100.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <b>
+                        <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">2. Trình độ học vấn, chuyên môn kỹ thuật</span>
+                    </b>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="100%" colspan="10" style="width:100.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">
+                        Trình độ học vấn:    [
+                        ] Chưa tốt nghiệp Tiểu học
+                        [  ] Tốt nghiệp Tiểu học
+                    </span>
+                </p>
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">
+                        [  ] Tốt nghiệp Trung học cơ sở
+                        [  ] Tốt nghiệp Trung học phổ thông
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="15%" colspan="2" style="width:15.2%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p align="center" style="margin-top:6.0pt;text-align:center"><span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;">Trình độ CMKT cao nhất:</span></p>
+            </td>
+            <td width="34%" colspan="4" style="width:34.84%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">[  ] Chưa qua đào tạo</span>
+                </p>
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">
+                        [  ] Chứng chỉ nghề dưới 3 tháng
+                    </span>
+                </p>
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">[  ] Trung cấp  </span>
+                </p>
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">[  ] Đại học  </span>
+                </p>
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">[  ] Tiến sĩ</span>
+                </p>
+            </td>
+            <td width="30%" colspan="3" style="width:30.7%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">[  ] CNKT không bằng</span>
+                </p>
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">[  ] Sơ cấp</span>
+                </p>
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">[  ] Cao đẳng</span>
+                </p>
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">[  ] Thạc sĩ</span>
+                </p>
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;"> </span>
+                </p>
+            </td>
+            <td width="19%" style="width:19.26%;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">Chuyên ngành đào tạo:</span>
+                </p>
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">…………………</span>
+                </p>
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">…………………</span>
+                </p>
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">…………………</span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="15%" colspan="2" style="width:15.2%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p align="center" style="margin-top:6.0pt;text-align:center"><span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;">Trình độ CMKT khác:</span></p>
+            </td>
+            <td width="34%" colspan="4" style="width:34.84%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">[  ] Chưa qua đào tạo</span>
+                </p>
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">
+                        [  ] Chứng chỉ nghề dưới 3 tháng
+                    </span>
+                </p>
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">[  ] Trung cấp  </span>
+                </p>
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">[  ] Đại học  </span>
+                </p>
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">[  ] Tiến sĩ</span>
+                </p>
+            </td>
+            <td width="30%" colspan="3" style="width:30.7%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">[  ] CNKT không bằng</span>
+                </p>
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">[  ] Sơ cấp</span>
+                </p>
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">[  ] Cao đẳng</span>
+                </p>
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">[  ] Thạc sĩ</span>
+                </p>
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;"> </span>
+                </p>
+            </td>
+            <td width="19%" style="width:19.26%;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">Chuyên ngành đào tạo:</span>
+                </p>
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">…………………</span>
+                </p>
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">…………………</span>
+                </p>
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">…………………</span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="15%" colspan="2" style="width:15.2%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p align="center" style="margin-top:6.0pt;text-align:center"><span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;">Trình độ khác</span></p>
+            </td>
+            <td width="84%" colspan="8" style="width:84.8%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">1: …………………………………………………………………………………………</span>
+                </p>
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">2: …………………………………………………………………………………………</span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="100%" colspan="10" style="width:100.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">
+                        Trình độ kỹ năng nghề (nếu có):
+                        …………………………………… Bậc: …………………………..
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="15%" colspan="2" style="width:15.2%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p align="center" style="margin-top:6.0pt;text-align:center"><span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;">Trình độ ngoại ngữ</span></p>
+            </td>
+            <td width="84%" colspan="8" style="width:84.8%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        Ngoại ngữ
+                        1: …………………………………………. Chứng chỉ …………………….
+                    </span>
+                </p>
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        Khả năng
+                        sử dụng: [  ] Tốt        [  ] Khá
+                        [  ] Trung
+                        bình
+                    </span>
+                </p>
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        Ngoại ngữ
+                        2: …………………………………………. Chứng chỉ .……………………
+                    </span>
+                </p>
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        Khả năng
+                        sử dụng: [  ] Tốt        [  ] Khá
+                        [  ]
+                        Trung bình
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="15%" colspan="2" style="width:15.2%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p align="center" style="margin-top:6.0pt;text-align:center"><span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;">Trình độ tin học</span></p>
+            </td>
+            <td width="84%" colspan="8" style="width:84.8%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        [
+                        ] Tin học văn phòng…………………..……………….…………..…………….....…
+                    </span>
+                </p>
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        Khả năng
+                        sử dụng: [  ] Tốt        [  ] Khá
+                        [  ]
+                        Trung bình
+                    </span>
+                </p>
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        [
+                        ] Khác: ………………………………………….……………….…..………………….
+                    </span>
+                </p>
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        Khả năng
+                        sử dụng: [  ] Tốt        [  ] Khá
+                        [  ]
+                        Trung bình
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="15%" colspan="2" style="width:15.2%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p align="center" style="margin-top:6.0pt;text-align:center"><span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;">Kỹ năng mềm</span></p>
+            </td>
+            <td width="84%" colspan="8" style="width:84.8%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        [
+                        ] Giao tiếp
+
+                        [  ] Thuyết trình
+
+                        [  ] Quản lý thời gian
+                    </span>
+                </p>
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        [
+                        ] Quản lý nhân sự          [  ]
+                        Tổng hợp, báo cáo    [  ] Thích ứng
+                    </span>
+                </p>
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        [
+                        ] Làm việc nhóm
+                        [  ] Làm việc độc lập        [  ] Chịu
+                        được áp lực công việc
+                    </span>
+                </p>
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        [
+                        ] Theo dõi giám sát       [  ] Tư duy phản biện
+                    </span>
+                </p>
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        [  ]
+                        Kỹ năng mềm khác: ……………………………………………………………………
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="100%" colspan="10" style="width:100.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <b>
+                        <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">3. Kinh nghiệm làm việc (nếu có)</span>
+                    </b>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="28%" colspan="4" style="width:28.04%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p align="center" style="margin-top:6.0pt;text-align:center"><span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;">Tên đơn vị</span></p>
+            </td>
+            <td width="22%" colspan="3" style="width:22.72%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p align="center" style="margin-top:6.0pt;text-align:center"><span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;">Chức vụ</span></p>
+            </td>
+            <td width="23%" style="width:23.58%;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p align="center" style="margin-top:6.0pt;text-align:center"><span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;">Công việc chính</span></p>
+            </td>
+            <td width="25%" colspan="2" style="width:25.66%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p align="center" style="margin-top:6.0pt;text-align:center"><span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;">Thời gian</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td width="28%" colspan="4" style="width:28.04%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p align="center" style="margin-top:6.0pt;text-align:center"><span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">.……………………</span></p>
+            </td>
+            <td width="22%" colspan="3" style="width:22.72%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p align="center" style="margin-top:6.0pt;text-align:center"><span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">.……………………</span></p>
+            </td>
+            <td width="23%" style="width:23.58%;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p align="center" style="margin-top:6.0pt;text-align:center"><span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">.……………………</span></p>
+            </td>
+            <td width="25%" colspan="2" style="width:25.66%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;"> …../20….. -…../20.....</span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="28%" colspan="4" style="width:28.04%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p align="center" style="margin-top:6.0pt;text-align:center"><span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">.……………………</span></p>
+            </td>
+            <td width="22%" colspan="3" style="width:22.72%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p align="center" style="margin-top:6.0pt;text-align:center"><span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">.……………………</span></p>
+            </td>
+            <td width="23%" style="width:23.58%;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p align="center" style="margin-top:6.0pt;text-align:center"><span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">.……………………</span></p>
+            </td>
+            <td width="25%" colspan="2" style="width:25.66%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;"> …../20….. -…../20.....</span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="28%" colspan="4" style="width:28.04%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p align="center" style="margin-top:6.0pt;text-align:center"><span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">.……………………</span></p>
+            </td>
+            <td width="22%" colspan="3" style="width:22.72%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p align="center" style="margin-top:6.0pt;text-align:center"><span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">.……………………</span></p>
+            </td>
+            <td width="23%" style="width:23.58%;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p align="center" style="margin-top:6.0pt;text-align:center"><span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">.……………………</span></p>
+            </td>
+            <td width="25%" colspan="2" style="width:25.66%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;"> …../20….. -…../20.....</span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="100%" colspan="10" style="width:100.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">
+                        [  ] Đã từng làm việc ở nước ngoài tại
+                        <span style="color:black">.…………………….…………………….……………………</span>
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="100%" colspan="10" style="width:100.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <b>
+                        <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">4. Việc làm cần tìm</span>
+                    </b>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="100%" colspan="10" style="width:100.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">
+                        Loại hình doanh nghiệp: [  ] Nhà nước
+                        [  ] Ngoài nhà nước
+                        [  ] Có vốn đầu tư nước ngoài
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="100%" colspan="10" style="width:100.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">Tên công việc: <span style="color:black">.…………………….…………………….…………………….…………………….………</span></span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="100%" colspan="10" style="width:100.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">Mô tả công việc: <span style="color:black">.…………………….…………………….…………………….………………………….</span></span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="100%" colspan="10" style="width:100.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">Mã nghề<sup>1</sup>:</span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="50%" colspan="7" style="width:50.76%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        Cấp
+                        1:…………………………………………..
+                    </span>
+                </p>
+            </td>
+            <td width="49%" colspan="3" style="width:49.24%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        Cấp
+                        2:…………………………………………..
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="50%" colspan="7" style="width:50.76%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        Cấp
+                        3:…………………………………………..
+                    </span>
+                </p>
+            </td>
+            <td width="49%" colspan="3" style="width:49.24%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        Cấp
+                        4:…………………………………………..
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr style="height:34.85pt">
+            <td width="100%" colspan="10" style="width:100.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in;height:34.85pt">
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        Chức vụ*:
+                        [  ] Nhân
+                        viên
+                        [  ] Quản
+                        lý            [
+                        ] Lãnh đạo
+                    </span>
+                </p>
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        [  ] Khác (ghi rõ): ………………………………………………………………………….
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr style="height:34.85pt">
+            <td width="100%" colspan="10" style="width:100.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in;height:34.85pt">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">
+                        Kinh nghiệm làm việc trong lĩnh vực cần
+                        tìm:
+                    </span>
+                </p>
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        [  ] Không có
+                        [  ] Dưới 1 năm   [  ] Từ 1 đến 2 năm   [
+                        ] Từ 2 đến 5 năm   [  ] Trên 5 năm
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="15%" colspan="3" rowspan="2" style="width:15.32%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p align="center" style="margin-top:6.0pt;text-align:center"><span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;">Nơi làm việc ưu tiên</span></p>
+            </td>
+            <td width="84%" colspan="7" style="width:84.68%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">
+                        Ưu tiên 1: Tỉnh ………………..... Quận/huyện/KCN/KKT
+                        ………………………….
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="84%" colspan="7" style="width:84.68%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">
+                        Ưu tiên 2: Tỉnh ………………..... Quận/huyện/KCN/KKT
+                        ………………………….
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr style="height:34.85pt">
+            <td width="100%" colspan="10" style="width:100.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in;height:34.85pt">
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        Loại hợp
+                        đồng LĐ:      [  ] Không xác định thời hạn
+                        [  ] Xác định thời hạn
+                    </span>
+                </p>
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        [  ] Hợp đồng theo mùa vụ hoặc công việc nhất định
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="100%" colspan="10" style="width:100.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        Khả năng
+                        đáp ứng: [  ] Làm ca      [  ] Đi công
+                        tác      [  ] Đi biệt phái
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="100%" colspan="10" style="width:100.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        Hình thức
+                        làm việc: [  ] Toàn thời gian      [  ]
+                        Bán thời gian
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="100%" colspan="10" style="width:100.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        Mục đích
+                        làm việc: [  ] Làm việc lâu dài      [  ]
+                        Làm việc tạm thời      [  ] Làm thêm
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="100%" colspan="10" style="width:100.0%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        Mức
+                        lương*:     - Lương tháng:
+                    </span>
+                </p>
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        [  ] Dưới 5 triệu đồng;   [  ] 5-10 triệu đồng;
+                        [  ] 10-20 triệu đồng;
+                    </span>
+                </p>
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        [  ] 20-50 triệu đồng;      [  ] &gt;50 triệu đồng
+                    </span>
+                </p>
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        - [  ] Lương ngày …...…………….đồng/ngày
+                    </span>
+                </p>
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        - [  ] Lương giờ …...………….….đồng/giờ
+                    </span>
+                </p>
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        - [  ] Thỏa thuận khi phỏng vấn
+                    </span>
+                </p>
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        - [  ] Hoa hồng theo doanh thu/sản phẩm
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="11%" rowspan="5" style="width:11.58%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p align="center" style="margin-top:6.0pt;text-align:center"><span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;">Chế độ phúc lợi</span></p>
+            </td>
+            <td width="88%" colspan="9" style="width:88.42%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">
+                        Hỗ trợ ăn: [  ] 1 bữa
+                        [  ] 2 bữa     [  ] 3 bữa
+                        [  ] Bằng tiền
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="88%" colspan="9" style="width:88.42%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">
+                        [  ] Đóng BHXH, BHYT,
+                        BHTN;   [  ] BH nhân thọ;   [  ] Trợ cấp thôi
+                        việc   [  ] Nhà trẻ
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="88%" colspan="9" style="width:88.42%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">
+                        [  ] Xe đưa đón   [  ]
+                        Hỗ trợ đi lại   [  ] Ký túc xá   [  ] Hỗ trợ
+                        nhà ở   [  ] Đào tạo
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="88%" colspan="9" style="width:88.42%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">
+                        [  ] Lối đi/thiết bị hỗ trợ cho người
+                        khuyết tật      [  ] Cơ hội thăng tiến
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr style="height:34.85pt">
+            <td width="88%" colspan="9" style="width:88.42%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in;height:34.85pt">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">
+                        [  ] Khác
+                        ……………………………………………………………………………………
+                    </span>
+                </p>
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">………………………………………………………………………………………………</span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="11%" rowspan="7" style="width:11.58%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p align="center" style="margin-top:6.0pt;text-align:center"><span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;">Điều kiện làm việc</span></p>
+            </td>
+            <td width="21%" colspan="4" style="width:21.76%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">Nơi làm việc</span>
+                </p>
+            </td>
+            <td width="66%" colspan="5" style="width:66.66%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        [
+                        ] Trong nhà;    [  ] Ngoài trời;
+                        [  ] Hỗn hợp
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="21%" colspan="4" style="width:21.76%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">Trọng lượng nâng</span>
+                </p>
+            </td>
+            <td width="66%" colspan="5" style="width:66.66%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        [
+                        ] Dưới 5kg    [  ] 5 - 20 kg    [  ]
+                        Trên 20kg
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="21%" colspan="4" style="width:21.76%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">Đứng hoặc đi lại</span>
+                </p>
+            </td>
+            <td width="66%" colspan="5" style="width:66.66%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        [
+                        ] Hầu như không có;    [  ] Mức trung
+                        bình;    [  ] Cần đứng/đi lại nhiều
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="21%" colspan="4" style="width:21.76%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">Nghe nói</span>
+                </p>
+            </td>
+            <td width="66%" colspan="5" style="width:66.66%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        [
+                        ] Không cần thiết;    [  ] Nghe nói cơ bản;
+                        [  ] Quan trọng
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="21%" colspan="4" style="width:21.76%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">Thị lực</span>
+                </p>
+            </td>
+            <td width="66%" colspan="5" style="width:66.66%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        [
+                        ] Mức bình thường;    [  ] Nhìn được vật/chi tiết nhỏ;
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="21%" colspan="4" style="width:21.76%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">Thao tác bằng tay</span>
+                </p>
+            </td>
+            <td width="66%" colspan="5" style="width:66.66%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        [
+                        ] Lắp ráp đồ vật lớn;    [  ] Lắp ráp đồ vật nhỏ;
+                        [  ] Lắp ráp đồ vật rất nhỏ
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="21%" colspan="4" style="width:21.76%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">Dùng 2 tay</span>
+                </p>
+            </td>
+            <td width="66%" colspan="5" style="width:66.66%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt;text-autospace:none">
+                    <span style="font-size:9.5pt;&quot;Arial&quot;,&quot;sans-serif&quot;;color:black">
+                        [
+                        ] Cần 2 tay;   [  ] Đôi khi cần 2 tay;   [  ]
+                        Chỉ cần 1 tay;   [  ] Trái;   [  ] Phải
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="33%" colspan="5" style="width:33.34%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">Sẵn sàng làm việc</span>
+                </p>
+            </td>
+            <td width="66%" colspan="5" style="width:66.66%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">
+                        [  ] Làm việc
+                        ngay      [  ] Làm việc sau (……..) tháng
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="33%" colspan="5" style="width:33.34%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">Hình thức tuyển dụng</span>
+                </p>
+            </td>
+            <td width="66%" colspan="5" style="width:66.66%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">
+                        [  ] Trực tiếp  [  ] Qua điện
+                        thoại  [  ] Phỏng vấn online  [  ] Nộp CV
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="33%" colspan="5" rowspan="3" style="width:33.34%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <b>
+                        <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">5. Thông tin liên hệ</span>
+                    </b>
+                </p>
+            </td>
+            <td width="66%" colspan="5" style="width:66.66%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">Số điện thoại: …………………………………………………………..</span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="66%" colspan="5" style="width:66.66%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">Email: ……………………………………………………………………</span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="66%" colspan="5" style="width:66.66%;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 0in 0in 0in">
+                <p style="margin-top:6.0pt">
+                    <span style="font-size:9.5pt;
+ &quot;Arial&quot;,&quot;sans-serif&quot;">Liên hệ khác (nếu có): …………………………………………………</span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="86" style="width:64.5pt;padding:0in 0in 0in 0in"></td>
+            <td width="27" style="width:20.25pt;padding:0in 0in 0in 0in"></td>
+            <td width="1" style="width:.75pt;padding:0in 0in 0in 0in"></td>
+            <td width="95" style="width:71.25pt;padding:0in 0in 0in 0in"></td>
+            <td width="40" style="width:30.0pt;padding:0in 0in 0in 0in"></td>
+            <td width="125" style="width:93.75pt;padding:0in 0in 0in 0in"></td>
+            <td width="5" style="width:3.75pt;padding:0in 0in 0in 0in"></td>
+            <td width="176" style="width:132.0pt;padding:0in 0in 0in 0in"></td>
+            <td width="48" style="width:.5in;padding:0in 0in 0in 0in"></td>
+            <td width="144" style="width:1.5in;padding:0in 0in 0in 0in"></td>
+        </tr>
+    </tbody>
+</table>
+
+<table id="data_footer" width="96%" cellspacing="0" height="" cellpadding="0" style="margin: 20px auto;text-align: center; height:200px;font-size: 12px">
+    <tbody>
+        <tr>
+            <td width="40%" style="text-align: left; vertical-align: top;">
+            </td>
+            <td style="vertical-align: top;">
+                <i>Ngày......tháng......năm...........</i><br>
+                <b>Người cung cấp thông tin</b><br>
+                <i>(ký, ghi rõ họ tên)</i>
+            </td>
+        </tr>
+    </tbody>
+</table>

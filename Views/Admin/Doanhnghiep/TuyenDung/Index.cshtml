@@ -74,9 +74,9 @@
                                 <td>Đã báo cáo</td>
                             }
                             <td>
-                                <button onclick="SetPrint('@item.id')" title="In mẫu" data-target="#Print_Modal" data-toggle="modal" class="btn btn-sm btn-clean btn-icon">
+                                <a class="btn font-weight-bolder" asp-controller="TuyenDung" asp-action="DangKyVL_Print" asp-route-id="@item.id" title="In thông tin" target="_blank">
                                     <i class="icon-lg la flaticon2-print text-primary"></i>
-                                </button>
+                                </a>
                                 @if (item.state == 0)
                                 {
                                     <button onclick="SetDuyet('@item.id')" title="Xét duyệt" data-target="#Xetduyet_Modal" data-toggle="modal" class="btn btn-sm btn-clean btn-icon">
@@ -98,42 +98,6 @@
     </div>
 </div>
 
-
-<!--print Modal-->
-<div class="modal fade" id="Print_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="card-label text-dark">
-                    Danh sách
-                </h3>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <i aria-hidden="true" class="ki ki-close"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row text-left">
-                    <form asp-controller="DanhsachDN" asp-action="Print1" method="post">
-                        <div class="col-xl-12">
-                            <div class="form-group fv-plugins-icon-container">
-                                <label>Đến dòng</label>
-                                <input type="number" class="form-control" id="linestop_excel" name="linestop_excel" value="111" />
-                            </div>
-                        </div>
-                    </form>
-                    <br>
-                    <form asp-controller="DanhsachDN" asp-action="Print2" method="post">
-                        <input type="text" id="id_print2" name="id_print2" hidden />
-                        <button type="submit" class="btn btn-light-default font-weight-bold">Mẫu 03a/PLI</button>
-                    </form>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-light-default font-weight-bold" data-dismiss="modal">Hủy thao tác</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 <!--xet duyet Modal-->
 <form asp-controller="TuyenDung" asp-action="Xetduyet" method="post" enctype="multipart/form-data" id="xetduyetForm">

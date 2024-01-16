@@ -5,7 +5,7 @@ namespace QLVL_Binh.Models.Systems
     public class dmloaihinhhdkt
     {
         [Key]
-        public int id { get; set; }
+        public long id { get; set; }
         public string madmlhkt { get; set; } = null!;
         [Required(ErrorMessage = "Tên loại hoạt động kinh tế không được để trống!!!")]
         public string tenlhkt { get; set; } = null!;

@@ -30,17 +30,22 @@ namespace QLVL_Binh.Controllers.Admin.Systems.TaiKhoan
 
         [Route("TaiKhoan")]
         [HttpGet]
-        public IActionResult Index(string type)
+        public IActionResult Index()
         {
-            var models = _db.Users.AsQueryable();
-            if (string.IsNullOrEmpty(type)) {
-                //models = models.Where(x =>x.phanloaitk==2);
+            /*var models=_db.Users.AsQueryable();
+            if (string.IsNullOrEmpty(type))
+            {
+                models = models.Where(x =>x.phanloaitk== (PhanLoaitk)2);
             }
             else
             {
-                //models = models.Where(x => x.phanloaitk == int.Parse(type));
-            }
-            /*var models = from us in _db.Users
+                models = models.Where(x => x.phanloaitk == (PhanLoaitk)int.Parse(type));
+            }*/
+            /*var test = _db.Users;
+            var test1 = from user in _db.Users
+                       select user;*/
+
+            var models = from us in _db.Users
                          join dv in _db.dmdonvi on us.madv equals dv.madv
                          select new Users
                          {
@@ -49,7 +54,7 @@ namespace QLVL_Binh.Controllers.Admin.Systems.TaiKhoan
                              DonViQuanLy = dv.tendv,
                              username = us.username,
                              status = us.status,
-                         };*/
+                         };
             ViewData["DonViQuanLy"] = _db.dmdonvi;
             ViewData["DonViBaoCao"] = _db.dmdonvi.Where(x => x.phanloaitaikhoan != "TH");
             ViewData["DSNhomTaiKhoan"] = _db.dsnhomtaikhoan;

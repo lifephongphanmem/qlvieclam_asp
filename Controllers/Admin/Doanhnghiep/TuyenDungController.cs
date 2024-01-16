@@ -14,6 +14,7 @@ using QLVL_Binh.Models.Systems;
 using Azure.Core;
 using QLVL_Binh.ViewModels.Systems;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace QLVL_Binh.Controllers.Admin.TuyenDung
 {
@@ -35,7 +36,7 @@ namespace QLVL_Binh.Controllers.Admin.TuyenDung
                          on td.id equals vt.idtuyendung
                          select new VM_TuyenDung
                          {
-                             id = td.id,
+                             id = vt.id,
                              noidung = td.noidung!,
                              name = vt.name!,
                              soluong = vt.soluong,
@@ -64,8 +65,8 @@ namespace QLVL_Binh.Controllers.Admin.TuyenDung
 
             //var vttd = _db.vitrituyendung.Where(x => x.state == "CXD");
             var vttd = _db.vitrituyendung.Where(x => x.state == "CXD");
-            if(vttd != null) { _db.vitrituyendung.RemoveRange(vttd); }
-            
+            if (vttd != null) { _db.vitrituyendung.RemoveRange(vttd); }
+
             _db.SaveChanges();
 
             ViewData["doanhnghiep"] = _db.company.Where(x => x.user == user).FirstOrDefault()!.name;
@@ -106,7 +107,7 @@ namespace QLVL_Binh.Controllers.Admin.TuyenDung
         }
         [Route("TuyenDung/Store")]
         [HttpPost]
-        public IActionResult Store(string name, string noidung, DateTime thoihan, string contact, string phonetd, string emailtd, string chucvutd, string yeucau, int soluong, int user,int idtuyendung)
+        public IActionResult Store(string name, string noidung, DateTime thoihan, string contact, string phonetd, string emailtd, string chucvutd, string yeucau, int soluong, int user, int idtuyendung)
         {
             var model = new tuyendung
             {
@@ -135,6 +136,44 @@ namespace QLVL_Binh.Controllers.Admin.TuyenDung
             _db.vitrituyendung.UpdateRange(vttd!);
             _db.SaveChanges();
             return RedirectToAction("Index", "TuyenDung", new { user });
+        }
+
+        [Route("TuyenDung/NhuCauTd_Print")]
+        [HttpPost]
+        public IActionResult NhuCauTd_Print(int id_print1)
+        {
+            var vitrituyendung = _db.vitrituyendung.FirstOrDefault(x=>x.id==id_print1);
+            var user = _db.tuyendung.FirstOrDefault(x => x.id == vitrituyendung!.idtuyendung);
+            var doanhnghiep = _db.company.FirstOrDefault(x => x.user == user!.user);
+
+            ViewData["name"] = doanhnghiep!.name;
+            ViewData["address"] = doanhnghiep.address;
+            ViewData["phone"] = doanhnghiep.phone;
+            ViewData["fax"] = doanhnghiep.fax;
+            ViewData["email"] = doanhnghiep.email;
+            ViewData["dkkd"] = doanhnghiep.dkkd;
+            ViewData["dmloaihinhhdkt"] = _db.dmloaihinhhdkt;
+
+            var nn = Helpers.NganhNgheKinhDoanh();
+            var tennn = "";
+            foreach (var n in nn)
+            {
+                if (n.MaNghanhNghe == doanhnghiep.nganhnghe)
+                {
+                    tennn = n.TenNghanhNghe;
+                    break;
+                }
+            }
+            ViewData["tennn"] = tennn;
+            return View("Views/Admin/Doanhnghiep/TuyenDung/NhuCauTd_Print.cshtml");
+        }
+
+        [Route("TuyenDung/DangKyVL_Print")]
+        [HttpGet]
+        public IActionResult DangKyVL_Print(int id)
+        {
+            var model=_db.vitrituyendung.FirstOrDefault(x=>x.id == id);
+            return View("Views/Admin/Doanhnghiep/TuyenDung/DangKyVL_Print.cshtml");
         }
         /*
          need build additional a column "abroad" for identify type a worker insite another nation or in Vietnam 

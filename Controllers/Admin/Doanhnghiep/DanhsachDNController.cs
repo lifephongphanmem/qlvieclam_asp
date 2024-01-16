@@ -87,45 +87,43 @@ namespace QLVL_Binh.Controllers.Admin.DoanhnghiepDN
             _db.SaveChanges();
             return RedirectToAction("Index", "DanhsachDN");
         }
-
-
-        [Route("DanhsachDN/Print1")]
+        /*[Route("DanhsachDN/NhuCauTd_Print")]
         [HttpPost]
-        public IActionResult Print1(int id_print1)
+        public IActionResult NhuCauTd_Print(int id_print1)
         {
-            var model = _db.company.Where(x => x.id == id_print1).FirstOrDefault();
+            var tuyendung = _db.tuyendung.FirstOrDefault(x => x.id == id_print1);
+            var doanhnghiep = _db.company.FirstOrDefault(x => x.user == tuyendung!.user);
 
-            var nld = _db.nguoilaodong.Where(x => x.company == id_print1);
-            ViewData["name"] = model.name;
-            ViewData["address"] = model.address;
-            ViewData["phone"] = model.phone;
-            ViewData["fax"] = model.fax;
-            ViewData["email"] = model.email;
-            ViewData["dkkd"] = model.dkkd;
+            ViewData["name"] = doanhnghiep!.name;
+            ViewData["address"] = doanhnghiep.address;
+            ViewData["phone"] = doanhnghiep.phone;
+            ViewData["fax"] = doanhnghiep.fax;
+            ViewData["email"] = doanhnghiep.email;
+            ViewData["dkkd"] = doanhnghiep.dkkd;
+            ViewData["dmloaihinhhdkt"] = _db.dmloaihinhhdkt;
+
             var nn = Helpers.NganhNgheKinhDoanh();
             var tennn = "";
             foreach (var n in nn)
             {
-                if (n.MaNghanhNghe == model.nganhnghe)
+                if (n.MaNghanhNghe == doanhnghiep.nganhnghe)
                 {
                     tennn = n.TenNghanhNghe;
                     break;
                 }
             }
             ViewData["tennn"] = tennn;
-            return View("Views/Admin/Doanhnghiep/Danhsach/Print.cshtml", nld);
+            return View("Views/Admin/Doanhnghiep/TuyenDung/NhuCauTd_Print.cshtml");
         }
 
-        [Route("DanhsachDN/Print2")]
+        [Route("DanhsachDN/DangKyVL_Print")]
         [HttpPost]
-        public IActionResult Print2(int id_print2)
+        public IActionResult DangKyVL(int id_print2)
         {
-            var model = _db.company.FirstOrDefaultAsync(x => x.id == id_print2);
-
-
-            var nguoilaodong = _db.nguoilaodong.Where(x => x.company == id_print2);
-            return View("Views/Admin/Doanhnghiep/Danhsach/Print.cshtml", nguoilaodong);
-        }
+            //id cua tuyen dung
+            var model=_db.vitrituyendung.Where(x=>x.idtuyendung==id_print2);
+            return View("Views/Admin/Doanhnghiep/TuyenDung/DangKyVL_Print.cshtml",model);
+        }*/
 
         [Route("DanhsachDN/Detail")]
         [HttpGet]

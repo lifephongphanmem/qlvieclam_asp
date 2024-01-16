@@ -16,8 +16,24 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = F:\QLVL_Binh\QLVL_Binh
 build_property._RazorSourceGeneratorDebug = 
 
+[F:/QLVL_Binh/QLVL_Binh/Views/Admin/CungLaoDong/BaoCao/CungLD_Report.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3VuZ0xhb0RvbmdcQmFvQ2FvXEN1bmdMRF9SZXBvcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/QLVL_Binh/QLVL_Binh/Views/Admin/CungLaoDong/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3VuZ0xhb0RvbmdcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/QLVL_Binh/QLVL_Binh/Views/Admin/CungLaoDong/NguoiTimViec.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3VuZ0xhb0RvbmdcTmd1b2lUaW1WaWVjLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/QLVL_Binh/QLVL_Binh/Views/Admin/CungLaoDong/ThongTin_NguoiTimViec_Print.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3VuZ0xhb0RvbmdcVGhvbmdUaW5fTmd1b2lUaW1WaWVjX1ByaW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/QLVL_Binh/QLVL_Binh/Views/Admin/CungLaoDong/ThongTin_Print.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3VuZ0xhb0RvbmdcVGhvbmdUaW5fUHJpbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/QLVL_Binh/QLVL_Binh/Views/Admin/Danhmuc/ChucVu/Index.cshtml]
@@ -180,12 +196,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRG9hbmhuZ2hpZXBcVHV5ZW5EdW5nXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/QLVL_Binh/QLVL_Binh/Views/Admin/Doanhnghiep/TuyenDung/DangKyVL_Print.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRG9hbmhuZ2hpZXBcVHV5ZW5EdW5nXERhbmdLeVZMX1ByaW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/QLVL_Binh/QLVL_Binh/Views/Admin/Doanhnghiep/TuyenDung/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRG9hbmhuZ2hpZXBcVHV5ZW5EdW5nXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/QLVL_Binh/QLVL_Binh/Views/Admin/Doanhnghiep/TuyenDung/Modal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRG9hbmhuZ2hpZXBcVHV5ZW5EdW5nXE1vZGFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/QLVL_Binh/QLVL_Binh/Views/Admin/Doanhnghiep/TuyenDung/NhuCauTd_Print.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRG9hbmhuZ2hpZXBcVHV5ZW5EdW5nXE5odUNhdVRkX1ByaW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/QLVL_Binh/QLVL_Binh/Views/Admin/Doanhnghiep/TuyenDung/ViTriTuyenDung.cshtml]
