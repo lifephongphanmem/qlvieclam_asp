@@ -1,0 +1,105 @@
+﻿@model QLVL_Binh.Models.Systems.kybaocao
+@section custom_style{
+    <link rel="stylesheet" type="text/css" href="~/Admin/assets/datatables/bootstrap/dataTables.bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="~/Admin/assets/datatables/bootstrap/dataTables.css" />
+}
+
+@section custom_script{
+    <script type="text/javascript" src="~/Admin/assets/datatables/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="~/Admin/assets/datatables/bootstrap/dataTables.bootstrap.js"></script>
+    <script src="~/Admin/assets/datatables/scripts/table-managed.js"></script>
+    <script>
+        $(document).ready(function () {
+            TableManaged.init();
+        });
+
+
+    </script>
+}
+<div class="card card-custom">
+    <div class="card-header ribbon ribbon-top ribbon-ver">
+        <div class="card-title">
+            <h3 class="card-label"> Thông tin ky điều tra</h3>
+        </div>
+    </div>
+    <!--begin::Form-->
+    <div class="card-body">
+        <div class="mb-3 font-weight-bold font-size-lg">
+            <label style="color: blue; text-decoration-line: underline; font-weight: bold">Thông tin hồ sơ</label>
+        </div>
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="form-group">
+                    <label><b>Đơn vị</b></label>
+                    <input type="text" class="form-control" name="donvi" id="donvi" />
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="form-group">
+                    <label><b>Kỳ điều tra</b></label>
+                    <input type="date" class="form-control" name="kydieutra" id="kydieutra" />
+                </div>
+            </div>
+            <div class="col-xl-12">
+                <div class="form-group">
+                    <label><b>Nội dung</b></label>
+                    <textarea class="form-control" name="noidung" id="noidung" cols="10"></textarea>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="form-group">
+                    <label><b>Nội dung</b></label>
+                    <input type="file" accept=".xls,.xlsx" id="file_excel" name="file_excel" />
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+    <div class="card-footer" style="text-align:center">
+        <a asp-controller="CungLaoDong" asp-action="DanhSachDieuTra" class="btn btn-danger">
+            <i class="la la-reply"></i>Quay lại
+        </a>&ensp;
+        <button type="reset" class="btn btn-secondary"><i class="la la-refresh"></i>Nhập lại</button>&ensp;
+        <button type="button" class="btn btn-primary font-weight-bold" onclick="DanhSachDieuTra_Store()">Đồng ý</button>
+    </div>
+    <!--end::Form-->
+</div>
+<script>
+    function DanhSachDieuTra_Store() {
+        if ($('#file_excel').val() == '') {
+            toastr.error("File đính kèm không được để trống!!!", "Lỗi!");
+        } else {
+            var file = new FormData();
+            file.append("donvi", $("#donvi").val());
+            file.append("kydieutra", $("#kydieutra").val());
+            file.append("noidung", $("#noidung").val());
+
+            file.append("FormFile", $("#file_excel")[0].files[0]);
+
+            $.ajax({
+                url: '/CungLaoDong/DanhSachDieuTra_Store',
+                type: 'POST',
+                data: file,
+                processData: false,
+                contentType: false,
+
+                success: function (data) {
+                    if (data.status == 'success') {
+                        toastr.success("Cập nhật thông tin thành công!", "Thành công");
+
+                        //$('#frm_data').replaceWith(data.message);
+
+                        $(document).ready(function () {
+                            TableManaged4.init();
+                        });
+
+                    } else {
+                        toastr.error(data.message, "Lỗi!");
+                    }
+                }
+            })
+        }
+    }
+</script>

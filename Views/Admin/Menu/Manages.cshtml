@@ -89,15 +89,6 @@
                     <i class="menu-arrow"></i>
                 </a>
             </li>
-            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
-                <a class="menu-link menu-toggle">
-                    <i class="menu-bullet menu-bullet-line">
-                        <span></span>
-                    </i>
-                    <span class="menu-text" style="color:red">Báo cáo</span>
-                    <i class="menu-arrow"></i>
-                </a>
-            </li>
         </ul>
     </div>
 </li>
@@ -109,6 +100,15 @@
     <div class="menu-submenu">
         <i class="menu-arrow"></i>
         <ul class="menu-subnav">
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle" asp-controller="CungLaoDong" asp-action="DanhSachDieuTra">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text">Danh sách điều tra</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
                 <a class="menu-link menu-toggle" asp-controller="CungLaoDong" asp-action="Index" asp-route-loai="vieclam">
                     <i class="menu-bullet menu-bullet-line">
@@ -446,7 +446,7 @@
 <!-- doanh nghiep -->
 <li class="menu-item" aria-haspopup="true" id="menu_dg">
     <a href="javascript:;" class="menu-link menu-toggle">
-        <span class="menu-text">TỔNG HỢP,PHÂN TÍCH</span>
+        <span class="menu-text">TỔNG HỢP,PHÂN TÍCH,THỐNG KÊ</span>
     </a>
     <div class="menu-submenu">
         <i class="menu-arrow"></i>

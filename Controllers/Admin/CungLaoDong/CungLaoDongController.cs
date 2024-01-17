@@ -142,6 +142,56 @@ namespace QLVL_Binh.Controllers.Admin.CungLaoDong
         {
             return View("Views/Admin/CungLaoDong/ThongTin_NguoiTimViec_Print.cshtml");
         }
+
+        [Route("CungLaoDong/DanhSachDieuTra")]
+        [HttpGet]
+        public IActionResult DanhSachDieuTra(string huyen, string xa)
+        {
+            var Madv = "";
+            if (string.IsNullOrEmpty(xa))
+            {
+                Madv = _db.dmdonvi.FirstOrDefault()!.madv!;
+            }
+            else
+            {
+                Madv = _db.dmdonvi.Where(x => x.madiaban == xa).FirstOrDefault()!.madv!;
+            }
+            var model = (from kbc in _db.kybaocao
+                         join dv in _db.dmdonvi
+                         on kbc.madv_x equals dv.madv
+                         select new kybaocao
+                         {
+                             donvi=dv.tendv,
+                             noidung=kbc.noidung,
+                             kydieutra=kbc.kydieutra,
+                         });
+
+            ViewData["mahuyen"] = huyen;
+            ViewData["maxa"] = xa;
+            ViewData["Huyen"] = _db.danhmuchanhchinh.Where(t => t.capdo == "H");
+            if (string.IsNullOrEmpty(xa))
+            {
+                ViewData["Xa"] = _db.danhmuchanhchinh.Where(t => t.capdo == "X");
+            }
+            else
+            {
+                ViewData["Xa"] = _db.danhmuchanhchinh.Where(t => t.capdo == "X" && t.parent == huyen);
+            }
+            return View("Views/Admin/CungLaoDong/DanhSachDieuTra.cshtml",model);
+        }
+
+        [Route("CungLaoDong/DanhSachDieuTra_Create")]
+        [HttpGet]
+        public IActionResult DanhSachDieuTra_Create()
+        {
+            return View("Views/Admin/CungLaoDong/TuyenDung/DanhSachDieuTra_Create.cshtml");
+        }
+        [Route("CungLaoDong/DanhSachDieuTra_Store")]
+        [HttpPost]
+        public async Task<IActionResult> DanhSachDieuTra_Store()
+        {
+            return View("Views/Admin/CungLaoDong/TuyenDung/DanhSachDieuTra_Create.cshtml");
+        }
     }
 }
 

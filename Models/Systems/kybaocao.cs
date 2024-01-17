@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace QLVL_Binh.Models.Systems
 {
@@ -23,5 +24,7 @@ namespace QLVL_Binh.Models.Systems
         public string? thoidiem_t { get; set; }
         public DateTime created_at { get; set; }
         public DateTime updated_at { get; set; }
+        [NotMapped] 
+        public string? donvi { get; set;}
     }
 }
