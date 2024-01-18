@@ -78,7 +78,7 @@ namespace QLVL_Binh.Controllers.Admin.CungLaoDong
 
         }
 
-        [Route("CungLaoDong/ThongTin_Print")]
+        [Route("CungLaoDong/ThongTin_PrintSave")]
         [HttpGet]
         public ActionResult ThongTin_Print(long id,long xa) {
             var model=_db.nhankhau.FirstOrDefault(x=>x.id== id);
@@ -136,9 +136,15 @@ namespace QLVL_Binh.Controllers.Admin.CungLaoDong
 
         }
 
-        [Route("CungLaoDong/Test")]
+        [Route("CungLaoDong/ThongTin_Print")]
         [HttpGet]
-        public IActionResult Test()
+        public IActionResult ThongTin_PrintTest()
+        {
+            return View("Views/Admin/CungLaoDong/ThongTin_Print.cshtml");
+        }
+        [Route("CungLaoDong/ThongTin_NguoiTimViec_Print")]
+        [HttpGet]
+        public IActionResult ThongTin_NguoiTimViec_PrintTest()
         {
             return View("Views/Admin/CungLaoDong/ThongTin_NguoiTimViec_Print.cshtml");
         }

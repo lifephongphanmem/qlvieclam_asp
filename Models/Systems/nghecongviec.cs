@@ -5,7 +5,7 @@ namespace QLVL_Binh.Models.Systems
     public class nghecongviec
     {
         [Key]
-        public int id { get; set; }
+        public long id { get; set; }
         public string tendm { get; set; } = null!;
         public string? stt { get; set; }
         public DateTime created_at { get; set; }

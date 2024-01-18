@@ -1,0 +1,1248 @@
+﻿@{
+    Layout = null;
+}
+@section custom_style{
+    <link rel="stylesheet" type="text/css" href="~/Admin/assets/datatables/bootstrap/dataTables.bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="~/Admin/assets/datatables/bootstrap/dataTables.css" />
+    <link rel="stylesheet" type="text/css" href="~/NewFolder/test.css" />
+
+}
+
+
+
+<!--HỆ THỐNG THÔNG TIN QUẢN LÝ LAO ĐỘNG-->
+<li class="menu-item" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+    <h6 class="menu-text" style="margin-left:10px;color:#3699FF">HỆ THỐNG THÔNG TIN QUẢN LÝ LAO ĐỘNG</h6>
+</li>
+<!-- I -->
+<li class="menu-item" aria-haspopup="true" id="menu_dg">
+    <a href="javascript:;" class="menu-link menu-toggle">
+        <span class="menu-text">Lập kế hoạch thu thập thông tin lao động</span>
+    </a>
+    <div class="menu-submenu">
+        <i class="menu-arrow"></i>
+        <ul class="menu-subnav">
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Thông tin về sản phẩm cần thu thập thông tin</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Nội dung thu thập và kinh phí thực hiện</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Phân công nhiệm vụ thu thập thông tin</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Duyệt kế hoạch thu thập thông tin</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Báo cáo đánh giá tổng hợp công tác thu thập thông tin</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</li>
+<!-- II -->
+<li class="menu-item" aria-haspopup="true" id="menu_dg">
+    <a href="javascript:;" class="menu-link menu-toggle">
+        <span class="menu-text">Thu thập thông tin thị trường lao động</span>
+    </a>
+    <div class="menu-submenu">
+        <i class="menu-arrow"></i>
+        <ul class="menu-subnav">
+            <!--II 1-->
+            <li class="menu-item" aria-haspopup="true" id="menu_dg">
+                <a href="javascript:;" class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text">Xây dựng Cơ sở dữ liệu thu thập thông tin thị trường lao động</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="menu-submenu">
+                    <i class="menu-arrow"></i>
+                    <ul class="menu-subnav">
+                        <li class="menu-item" aria-haspopup="true" id="menu_dgr_dm">
+                            <a class="menu-link" asp-controller="TuyenDung" asp-action="NhuCauTd_PrintTest" target="_blank">
+                                <i class="menu-bullet menu-bullet-dot">
+                                    <span></span>
+                                </i>
+                                <span class="menu-text">Cơ sở dữ liệu thông tin nhu cầu tuyển dụng lao động của người sử dụng lao động</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" aria-haspopup="true" id="menu_dgr_dm">
+                            <a class="menu-link" asp-controller="CungLaoDong" asp-action="ThongTin_NguoiTimViec_PrintTest" target="_blank">
+                                <i class="menu-bullet menu-bullet-dot">
+                                    <span></span>
+                                </i>
+                                <span class="menu-text">Cơ sở dữ liệu thông tin thông tin người tìm việc</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" aria-haspopup="true" id="menu_dgr_dm">
+                            <a class="menu-link" asp-controller="CungLaoDong" asp-action="ThongTin_PrintTest" target="_blank">
+                                <i class="menu-bullet menu-bullet-dot">
+                                    <span></span>
+                                </i>
+                                <span class="menu-text">Cơ sở dữ liệu thông tin tin về người lao động</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" aria-haspopup="true" id="menu_dgr_dm">
+                            <a class="menu-link">
+                                <i class="menu-bullet menu-bullet-dot">
+                                    <span></span>
+                                </i>
+                                <span class="menu-text" style="color:red">Cơ sở dữ liệu sổ sổ ghi chép số liệu Thị trường lao động</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" aria-haspopup="true" id="menu_dgr_dm">
+                            <a class="menu-link">
+                                <i class="menu-bullet menu-bullet-dot">
+                                    <span></span>
+                                </i>
+                                <span class="menu-text" style="color:red">Cơ sở dữ liệu lưu trữ thông tin tổng hợp thị trường lao động</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" aria-haspopup="true" id="menu_dgr_dm">
+                            <a class="menu-link">
+                                <i class="menu-bullet menu-bullet-dot">
+                                    <span></span>
+                                </i>
+                                <span class="menu-text" style="color:red">Cơ sở dữ liệu đăng ký giới thiệu cung ứng lao động</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" aria-haspopup="true" id="menu_dgr_dm">
+                            <a class="menu-link">
+                                <i class="menu-bullet menu-bullet-dot">
+                                    <span></span>
+                                </i>
+                                <span class="menu-text" style="color:red">Cơ sở dữ liệu lưu trữ dữ liệu đối soát thông tin</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" aria-haspopup="true" id="menu_dgr_dm">
+                            <a class="menu-link">
+                                <i class="menu-bullet menu-bullet-dot">
+                                    <span></span>
+                                </i>
+                                <span class="menu-text" style="color:red">Cơ sở dữ liệu các chỉ số của Bản tin thị trường lao động</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <!--II 2-->
+            <li class="menu-item" aria-haspopup="true" id="menu_dg">
+                <a href="javascript:;" class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text">Xây dựng hệ thống truy vấn thông tin lao động - việc làm</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="menu-submenu">
+                    <i class="menu-arrow"></i>
+                    <ul class="menu-subnav">
+                        <li class="menu-item" aria-haspopup="true" id="menu_dgr_dm">
+                            <a class="menu-link" asp-controller="CungLaoDong" asp-action="Index" asp-route-loai="vieclam">
+                                <i class="menu-bullet menu-bullet-dot">
+                                    <span></span>
+                                </i>
+                                <span class="menu-text">Bảng vấn tin kiểm tra xác thực thông tin cung lao động.</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" aria-haspopup="true" id="menu_dgr_dm">
+                            <a class="menu-link" asp-controller="CungLaoDong" asp-action="Index" asp-route-loai="vieclam">
+                                <i class="menu-bullet menu-bullet-dot">
+                                    <span></span>
+                                </i>
+                                <span class="menu-text">Bảng vấn tin đối soát thông tin cung lao động</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" aria-haspopup="true" id="menu_dgr_dm">
+                            <a class="menu-link" asp-controller="NguoiLaoDong" asp-action="Index">
+                                <i class="menu-bullet menu-bullet-dot">
+                                    <span></span>
+                                </i>
+                                <span class="menu-text">Bảng vấn tin kiểm tra xác thực thông tin cầu lao động.</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" aria-haspopup="true" id="menu_dgr_dm">
+                            <a class="menu-link" asp-controller="NguoiLaoDong" asp-action="Index">
+                                <i class="menu-bullet menu-bullet-dot">
+                                    <span></span>
+                                </i>
+                                <span class="menu-text">Bảng vấn tin đối soát thông tin cầu lao động</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" aria-haspopup="true" id="menu_dgr_dm">
+                            <a class="menu-link">
+                                <i class="menu-bullet menu-bullet-dot">
+                                    <span></span>
+                                </i>
+                                <span class="menu-text" style="color:red">Bảng vấn tin trích xuất dữ liệu giao nộp và đối soát thông tin cung - cầu lao động</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" aria-haspopup="true" id="menu_dgr_dm">
+                            <a class="menu-link">
+                                <i class="menu-bullet menu-bullet-dot">
+                                    <span></span>
+                                </i>
+                                <span class="menu-text" style="color:red"> Bảng vấn tin đối soát mẫu 03a/PL01 NĐ23/2021/NĐ-CP
+                                </span>
+                            </a>
+                        </li>
+                        <li class="menu-item" aria-haspopup="true" id="menu_dgr_dm">
+                            <a class="menu-link">
+                                <i class="menu-bullet menu-bullet-dot">
+                                    <span></span>
+                                </i>
+                                <span class="menu-text" style="color:red">Lệnh truy vấn khai thác dữ liệu từ các phiên giao dịch</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" aria-haspopup="true" id="menu_dgr_dm">
+                            <a class="menu-link">
+                                <i class="menu-bullet menu-bullet-dot">
+                                    <span></span>
+                                </i>
+                                <span class="menu-text" style="color:red">Lệnh truy vấn khai thác dữ liệu tổng hợp thông tin thị trường lao động</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</li>
+<!--B-->
+<li class="menu-item" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+    <h6 class="menu-text" style="margin-left:10px;color:#3699FF">TỔNG HỢP, PHÂN TÍCH, DỰ BÁO THỊ TRƯỜNG LAO ĐỘNG</h6>
+</li>
+<!-- III -->
+<li class="menu-item" aria-haspopup="true" id="menu_dg">
+    <a href="javascript:;" class="menu-link menu-toggle">
+        <span class="menu-text">Quản trị hệ thống</span>
+    </a>
+    <div class="menu-submenu">
+        <i class="menu-arrow"></i>
+        <ul class="menu-subnav">
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle" asp-controller="DonVi" asp-action="Index">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text">Quản lý thông tin đơn vị</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Cấu hình hệ thống phần mềm</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle" asp-controller="NhomPhanQuyen" asp-action="Index">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text">Quản lý nhóm người dùng</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle" asp-controller="NhomPhanQuyen" asp-action="Index">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text">Thao tác nhóm người dùng</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle" asp-controller="TaiKhoan" asp-action="Index">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text">Quản lý người dùng</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Thao tác người dùng</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Thay đổi mật khẩu</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle" asp-controller="NhomPhanQuyen" asp-action="Index">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text">Phân quyền nhóm người dùng</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Phân quyền người dùng trong nhóm</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Xem nhật ký log</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Sao lưu phục hồi dữ liệu</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Lưu vết và xử lý Log</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</li>
+<!-- IV -->
+<li class="menu-item" aria-haspopup="true" id="menu_dg">
+    <a href="javascript:;" class="menu-link menu-toggle">
+        <span class="menu-text">Quản lý danh mục dữ liệu</span>
+    </a>
+    <div class="menu-submenu">
+        <i class="menu-arrow"></i>
+        <ul class="menu-subnav">
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle" asp-controller="DonVi" asp-action="Index">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text">Danh mục tổ chức đơn vị</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle" asp-controller="ChucVu" asp-action="Index">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text">Danh mục chức danh</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle" asp-controller="TrinhDoCMKT" asp-action="Index">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text">Danh mục chuyên môn</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle" asp-controller="NghanhSXKD" asp-action="Index">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text">Ngành nghề tuyển dụng</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Danh mục quốc gia</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Đối tượng chính sách</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Hình thức đào tạo</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Hình thức doanh nghiệp</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Hình thức tham gia</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Khu công nghiệp</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Danh mục loại hình đào tạo</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle" asp-controller="NgheCongViec" asp-action="Index">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text">Danh mục loại việc làm</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Danh mục ngành học</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Danh mục nghề đào tạo</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Danh mục nguồn việc làm</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle" asp-controller="DiaBan" asp-action="Index">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text">Danh mục địa phương</span>
+                    <i class="menu-arrow"></i>
+                </a>
+
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Danh mục tình trạng tàn tật</span>
+                    <i class="menu-arrow"></i>
+                </a>
+
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle" asp-controller="TinhTrangThamGiaHDKT" asp-action="Index">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text">Danh mục tình trạng việc làm</span>
+                    <i class="menu-arrow"></i>
+                </a>
+
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Danh mục thời gian làm việc</span>
+                    <i class="menu-arrow"></i>
+                </a>
+
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle" asp-controller="TrinhDoGDPT" asp-action="Index">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text">Danh mục trình độ học vấn</span>
+                    <i class="menu-arrow"></i>
+                </a>
+
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Danh mục trình độ ngoại ngữ, tin học</span>
+                    <i class="menu-arrow"></i>
+                </a>
+
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle" asp-controller="CungLaoDong" asp-action="NguoiTimViec">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text">Người tìm Việc</span>
+                    <i class="menu-arrow"></i>
+                </a>
+
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle" asp-controller="DanhsachDN" asp-action="Index">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text">Danh mục nhà tuyển dụng</span>
+                    <i class="menu-arrow"></i>
+                </a>
+
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Danh mục xuất khẩu lao động</span>
+                    <i class="menu-arrow"></i>
+                </a>
+
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Danh mục dân tộc</span>
+                    <i class="menu-arrow"></i>
+                </a>
+
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Danh mục tôn giáo</span>
+                    <i class="menu-arrow"></i>
+                </a>
+
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Danh mục trạng thái việc làm</span>
+                    <i class="menu-arrow"></i>
+                </a>
+
+            </li>
+        </ul>
+    </div>
+</li>
+<!-- V -->
+<li class="menu-item" aria-haspopup="true" id="menu_dg">
+    <a href="javascript:;" class="menu-link menu-toggle">
+        <span class="menu-text">Cập nhật thông tin cung - cầu lao động</span>
+    </a>
+    <div class="menu-submenu">
+        <i class="menu-arrow"></i>
+        <ul class="menu-subnav">
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle" asp-controller="DonVi" asp-action="Index">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text">Đơn vị thu thập thông tin</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle" asp-controller="CungLaoDong" asp-action="Index" asp-route-loai="vieclam">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text">Xem nguồn cung lao động</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle" asp-controller="CungLaoDong" asp-action="Index" asp-route-loai="vieclam">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text">Tổng hợp nguồn cung lao động</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Nhu cầu tuyển dụng lao động</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Xem nhu cầu tuyển dụng</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Đơn vị quản lý người lao động theo hộ gia đình</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Biến động việc làm của người lao động</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Thông tin việc làm của người lao động</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Chế độ chính sách, tiền lương, BHXH, BHYT của người lao động</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Thông tin rủi ro, phương tiện làm việc, điều kiện làm việc của người lao động</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Thông tin về cung lao động </span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Thông tin nhu cầu tuyển dụng lao động </span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle" asp-controller="NguoiLaoDong" asp-action="LamViecNuocNgoai">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text">Thông tin người lao động nước ngoài trên địa bàn tỉnh </span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle" asp-controller="TuyenDung" asp-action="NhuCauTd_PrintTest" target="_blank">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text">Phiếu đăng ký giới thiệu/cung ứng lao động </span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Đối soát thông tin Mẫu 02 và 03a/PL01 NĐ 23/2021/NĐ-CP và NĐ 152/2020/NĐ-CP</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</li>
+<!-- VI -->
+<li class="menu-item" aria-haspopup="true" id="menu_dg">
+    <a href="javascript:;" class="menu-link menu-toggle">
+        <span class="menu-text">Tổng hợp, phân tích, dự báo thị trường lao động</span>
+    </a>
+    <div class="menu-submenu">
+        <i class="menu-arrow"></i>
+        <ul class="menu-subnav">
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Tổng hợp, phân tích, thống kê số liệu Lực lượng lao động</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Tổng hợp, phân tích, thống kê số liệu Việc làm</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Tổng hợp, phân tích, thống kê số liệu thất nghiệp</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Tổng hợp, phân tích, thống kê số liệu về mức thu nhập</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Tổng hợp, phân tích, thống kê số biến động việc làm theo ngành nghề, nhóm ngành nghề</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Tổng hợp, phân tích, thống kê số liệu chế độ Bảo hiểm xã hội</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Tổng hợp, phân tích, thống kê số liệu chế độ Bảo hiểm thất nghiệp</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Tổng hợp, phân tích, thống kê số liệu hoạt động giao dịch thị trường lao động</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Tổng hợp, phân tích, thống kê số liệu xu hướng tuyển dụng, tìm việc trên thị trường</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Thiết lập biến đầu vào cho mô hình dự báo</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Nhập bộ số liệu cho mô hình phân tích dự báo</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Thực hiện phân tích, dự báo nhu cầu lao động</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Tổng hợp, phân tích, trích xuất thông tin dự báo triển vọng thị trường lao động</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Biểu đồ hóa dự báo</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</li>
+<!-- VII -->
+<li class="menu-item" aria-haspopup="true" id="menu_dg">
+    <a href="javascript:;" class="menu-link menu-toggle">
+        <span class="menu-text">Bảng tin thị trường lao động</span>
+    </a>
+    <div class="menu-submenu">
+        <i class="menu-arrow"></i>
+        <ul class="menu-subnav">
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Thiết lập giao diện bản tin</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Tổng hợp số liệu lên bản tin</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Xây dựng bản tin mẫu</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Xử lý nội dung bản tin</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Xuất bản tin sang file văn bản</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Xuất bản tin sanf file PDF</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Xuất bản bản dạng bài báo</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Xuất bản bản dạng E-Book</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Gửi bản tin qua Email, mạng xã hội</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Xuất bản tin lên website, báo điện tử</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</li>
+<!-- VIII -->
+<li class="menu-item" aria-haspopup="true" id="menu_dg">
+    <a href="javascript:;" class="menu-link menu-toggle">
+        <span class="menu-text">Hệ thống báo cáo thống kê</span>
+    </a>
+    <div class="menu-submenu">
+        <i class="menu-arrow"></i>
+        <ul class="menu-subnav">
+            <!--VIII 1-->
+            <li class="menu-item" aria-haspopup="true" id="menu_dg">
+                <a href="javascript:;" class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text">Báo cáo nghiệp vụ</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="menu-submenu">
+                    <i class="menu-arrow"></i>
+                    <ul class="menu-subnav">
+                        <li class="menu-item" aria-haspopup="true" id="menu_dgr_dm">
+                            <a class="menu-link">
+                                <i class="menu-bullet menu-bullet-dot">
+                                    <span></span>
+                                </i>
+                                <span class="menu-text" style="color:red">Xuất báo cáo thông tin cung - cầu lao động</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" aria-haspopup="true" id="menu_dgr_dm">
+                            <a class="menu-link">
+                                <i class="menu-bullet menu-bullet-dot">
+                                    <span></span>
+                                </i>
+                                <span class="menu-text" style="color:red">Báo cáo thông tin thị trường lao động</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" aria-haspopup="true" id="menu_dgr_dm">
+                            <a class="menu-link">
+                                <i class="menu-bullet menu-bullet-dot">
+                                    <span></span>
+                                </i>
+                                <span class="menu-text" style="color:red">Báo cáo thống kê theo tùy chọn người dùng</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" aria-haspopup="true" id="menu_dgr_dm">
+                            <a class="menu-link">
+                                <i class="menu-bullet menu-bullet-dot">
+                                    <span></span>
+                                </i>
+                                <span class="menu-text" style="color:red">Báo cáo số lượng theo mức thu nhập và đơn vị sử dụng lao động</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" aria-haspopup="true" id="menu_dgr_dm">
+                            <a class="menu-link">
+                                <i class="menu-bullet menu-bullet-dot">
+                                    <span></span>
+                                </i>
+                                <span class="menu-text" style="color:red">Báo cáo thống kê theo đơn vị hành chính</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" aria-haspopup="true" id="menu_dgr_dm">
+                            <a class="menu-link">
+                                <i class="menu-bullet menu-bullet-dot">
+                                    <span></span>
+                                </i>
+                                <span class="menu-text" style="color:red">Báo cáo tai nạn lao động</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" aria-haspopup="true" id="menu_dgr_dm">
+                            <a class="menu-link">
+                                <i class="menu-bullet menu-bullet-dot">
+                                    <span></span>
+                                </i>
+                                <span class="menu-text" style="color:red">Báo cáo lao động nước ngoài</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" aria-haspopup="true" id="menu_dgr_dm">
+                            <a class="menu-link">
+                                <i class="menu-bullet menu-bullet-dot">
+                                    <span></span>
+                                </i>
+                                <span class="menu-text" style="color:red">Báo cáo nhu cầu giải quyết việc làm</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" aria-haspopup="true" id="menu_dgr_dm">
+                            <a class="menu-link">
+                                <i class="menu-bullet menu-bullet-dot">
+                                    <span></span>
+                                </i>
+                                <span class="menu-text" style="color:red">Tra cứu thông tin đơn vị sử dụng lao động</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" aria-haspopup="true" id="menu_dgr_dm">
+                            <a class="menu-link">
+                                <i class="menu-bullet menu-bullet-dot">
+                                    <span></span>
+                                </i>
+                                <span class="menu-text" style="color:red">Tìm kiếm thông tin NTD, NLĐ</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <!--II 2-->
+            <li class="menu-item" aria-haspopup="true" id="menu_dg">
+                <a href="javascript:;" class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text">Tiện ích tra cứu báo cáo tổng hợp chung</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="menu-submenu">
+                    <i class="menu-arrow"></i>
+                    <ul class="menu-subnav">
+                        <li class="menu-item" aria-haspopup="true" id="menu_dgr_dm">
+                            <a class="menu-link">
+                                <i class="menu-bullet menu-bullet-dot">
+                                    <span></span>
+                                </i>
+                                <span class="menu-text" style="color:red">Báo cáo tình hình sử dụng lao động</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" aria-haspopup="true" id="menu_dgr_dm">
+                            <a class="menu-link">
+                                <i class="menu-bullet menu-bullet-dot">
+                                    <span></span>
+                                </i>
+                                <span class="menu-text" style="color:red">Tra cứu thông tin cung - cầu lao động</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" aria-haspopup="true" id="menu_dgr_dm">
+                            <a class="menu-link">
+                                <i class="menu-bullet menu-bullet-dot">
+                                    <span></span>
+                                </i>
+                                <span class="menu-text" style="color:red">Báo cáo tổng hợp thông tin thị trường lao động</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" aria-haspopup="true" id="menu_dgr_dm">
+                            <a class="menu-link">
+                                <i class="menu-bullet menu-bullet-dot">
+                                    <span></span>
+                                </i>
+                                <span class="menu-text" style="color:red">Trích xuất thông tin cung- cầu, thị trường lao động</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</li>
+<!-- IX -->
+<li class="menu-item" aria-haspopup="true" id="menu_dg">
+    <a href="javascript:;" class="menu-link menu-toggle">
+        <span class="menu-text">Lưu trữ, chia sẽ và kết nối thông tin</span>
+    </a>
+    <div class="menu-submenu">
+        <i class="menu-arrow"></i>
+        <ul class="menu-subnav">
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Lưu trữ, đồng bộ thông tin giữa các ứng dụng nội bộ</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Truy vấn, hiển thị và trích xuất thông tin tổng hợp</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Mã hóa, phê duyệt công bố thông tin tổng hợp</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">API tra cứu thông tin theo dữ liệu dân cư</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Thiết lập kết nối CSDL các ứng dụng trong hệ thống Dịch vụ việc làm và các API 
+                        khai thác liên thông dữ liệu sàn giao dịch việc làm</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</li>
+<!-- X -->
+<li class="menu-item" aria-haspopup="true" id="menu_dg">
+    <a href="javascript:;" class="menu-link menu-toggle">
+        <span class="menu-text">Kết nối chia sẽ dữ liệu với kho dữ liệu trung tâm</span>
+    </a>
+    <div class="menu-submenu">
+        <i class="menu-arrow"></i>
+        <ul class="menu-subnav">
+            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover" id="menu_dg">
+                <a class="menu-link menu-toggle">
+                    <i class="menu-bullet menu-bullet-line">
+                        <span></span>
+                    </i>
+                    <span class="menu-text" style="color:red">Thiết lập phương án kết nối, chia sẽ dữ liệu với DataWarehoure</span>
+                    <i class="menu-arrow"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</li>
+

@@ -138,7 +138,7 @@ namespace QLVL_Binh.Controllers.Admin.TuyenDung
             return RedirectToAction("Index", "TuyenDung", new { user });
         }
 
-        [Route("TuyenDung/NhuCauTd_Print")]
+        [Route("TuyenDung/NhuCauTd_PrintSave")]
         [HttpPost]
         public IActionResult NhuCauTd_Print(int id_print1)
         {
@@ -165,6 +165,13 @@ namespace QLVL_Binh.Controllers.Admin.TuyenDung
                 }
             }
             ViewData["tennn"] = tennn;
+            return View("Views/Admin/Doanhnghiep/TuyenDung/NhuCauTd_Print.cshtml");
+        }
+        [Route("TuyenDung/NhuCauTd_Print")]
+        [HttpGet]
+        public IActionResult NhuCauTd_PrintTest()
+        {
+            ViewData["dmloaihinhhdkt"] = _db.dmloaihinhhdkt;
             return View("Views/Admin/Doanhnghiep/TuyenDung/NhuCauTd_Print.cshtml");
         }
 
